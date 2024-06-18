@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.Globalization;
+using FirebirdSql.Data;
 
 namespace GestaoDeTarefas
 {
-    internal class Tarefa
-    {
+    public class Tarefa : Model{
+
         public Int32 Id { get; set; }
+        public override String TableName { get; set; }
 
         public String Titulo { get; set; }
 
@@ -16,6 +17,25 @@ namespace GestaoDeTarefas
 
         public DateTime Data { get; set; }
 
-        public Enum Status { get; set; }
+        public Status Status { get; set; }
+
+        public Tarefa(int id, string titulo, string descricao, DateTime data, Status status)
+        {
+            Id = id;
+            Titulo = titulo;
+            Descricao = descricao;
+            Data = data;
+            Status = status;
+            TableName = "tarefas";
+        }
+
+        public override String[] GetValues() {
+            return new[] { Titulo, Descricao, Data.ToString(CultureInfo.CurrentCulture), Status.ToString() };
+        }
+
+        public override String[] DbCollumns() {
+            return new[] { "id", "titulo", "Descricao", "data", "status" };
+        }
+
     }
 }

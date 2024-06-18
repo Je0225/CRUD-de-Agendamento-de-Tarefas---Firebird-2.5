@@ -31,7 +31,6 @@
             btnTestarConexao = new Button();
             dgvAtores = new DataGridView();
             btnInserirDado = new Button();
-            btnAtualizarDB = new Button();
             btnExcluirDado = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvAtores).BeginInit();
             SuspendLayout();
@@ -65,19 +64,9 @@
             btnInserirDado.UseVisualStyleBackColor = true;
             btnInserirDado.Click += btnInserirDado_Click;
             // 
-            // btnAtualizarDB
-            // 
-            btnAtualizarDB.Location = new Point(280, 24);
-            btnAtualizarDB.Name = "btnAtualizarDB";
-            btnAtualizarDB.Size = new Size(95, 23);
-            btnAtualizarDB.TabIndex = 3;
-            btnAtualizarDB.Text = "Atualizar DB";
-            btnAtualizarDB.UseVisualStyleBackColor = true;
-            btnAtualizarDB.Click += btnAtualizarDB_Click;
-            // 
             // btnExcluirDado
             // 
-            btnExcluirDado.Location = new Point(396, 24);
+            btnExcluirDado.Location = new Point(280, 24);
             btnExcluirDado.Name = "btnExcluirDado";
             btnExcluirDado.Size = new Size(97, 23);
             btnExcluirDado.TabIndex = 4;
@@ -91,7 +80,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(btnExcluirDado);
-            Controls.Add(btnAtualizarDB);
             Controls.Add(btnInserirDado);
             Controls.Add(dgvAtores);
             Controls.Add(btnTestarConexao);
@@ -106,7 +94,6 @@
         private Button btnTestarConexao;
         private DataGridView dgvAtores;
         private Button btnInserirDado;
-        private Button btnAtualizarDB;
         private Button btnExcluirDado;
     }
 }

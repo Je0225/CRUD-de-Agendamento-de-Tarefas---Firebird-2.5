@@ -1,15 +1,16 @@
-using FirebirdSql.Data.Client;
-using FirebirdSql.Data.FirebirdClient;
 using System.Data;
-using System.Drawing;
+using FirebirdSql.Data.FirebirdClient;
+using GestaoDeTarefas;
+
 
 namespace GestaoDeTarefas
 {
+
     public partial class Form1 : Form
     {
         public String Conexao = File.ReadAllText(Environment.CurrentDirectory + "\\Banco\\Firebird.conf");
-        //public String Conexao = @"DataSource=localhost; Database=C:\\Users\\User\\Desktop\\DIO_sql_Firebird\\FILMES.FDB; username= SYSDBA; password = masterkey";
         public FbConnection connection;
+
         public Form1()
         {
             InitializeComponent();
@@ -18,22 +19,23 @@ namespace GestaoDeTarefas
         private void btnTestarConexao_Click(object sender, EventArgs e)
         {
             connection = new FbConnection(Conexao);
-            FbCommand comando = new FbCommand("select * from atores", connection);
+            FbCommand comando = new FbCommand("select * from tarefas", connection);
             FbDataAdapter data = new FbDataAdapter(comando);
             DataSet dataset = new DataSet();
             connection.Open();
-            data.Fill(dataset, "ATORES");
-
+            data.Fill(dataset, "tarefas");
+            
             dgvAtores.DataSource = dataset;
-            dgvAtores.DataMember = "ATORES";
+            dgvAtores.DataMember = "tarefas";
             connection.Close();
         }
 
-        private void btnInserirDado_Click(object sender, EventArgs e)
-        {
+        private void btnInserirDado_Click(object sender, EventArgs e) {
+            Tarefa t = new Tarefa(1, "teste", "teeeeeste", DateTime.Now, Status.Andamento);
+            
             connection = new FbConnection(Conexao);
-            FbCommand comando = new FbCommand("INSERT INTO EMPLOYEE (EMP_NO, FIRST_NAME, LAST_NAME, SALARY) " +
-                "VALUES (160, 'THIAGO', 'CAVALHEIRO', 1000000)", connection);
+            FbCommand comando = new FbCommand("INSERT INTO ATORES (ID,PRIMEIRO_NOME, ULTIMO_NOME, SEXO) " +
+                "VALUES (24,'JENIFER', 'MATTES', 'F')", connection);
             connection.Open();
             try
             {
@@ -49,14 +51,26 @@ namespace GestaoDeTarefas
             MessageBox.Show("Inserção efetuada com sucesso!");
         }
 
-        private void btnAtualizarDB_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnExcluirDado_Click(object sender, EventArgs e)
         {
+            connection = new FbConnection(Conexao);
+            FbCommand comando = new FbCommand("DELETE FROM ATORES WHERE ID = 24", connection);
+            connection.Open();
+            try
+            {
+                comando.ExecuteNonQuery();
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show("Problema na Exclusão!" + E.Message);
+                connection.Close();
+                return;
+            }
 
+            connection.Close();
+            MessageBox.Show("Exclusão efetuada com sucesso!");
         }
+
     }
+
 }

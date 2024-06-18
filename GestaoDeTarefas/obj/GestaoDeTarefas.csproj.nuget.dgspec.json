@@ -40,13 +40,9 @@
         "net7.0-windows7.0": {
           "targetAlias": "net7.0-windows",
           "dependencies": {
-            "FirebirdSql.EntityFrameworkCore.Firebird": {
+            "FirebirdSql.Data.FirebirdClient": {
               "target": "Package",
-              "version": "[8.0.0, )"
-            },
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[7.0.20, )"
+              "version": "[10.3.1, )"
             }
           },
           "imports": [
