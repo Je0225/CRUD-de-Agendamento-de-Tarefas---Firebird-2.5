@@ -32,10 +32,12 @@ namespace GestaoDeTarefas
 
         private void btnInserirDado_Click(object sender, EventArgs e) {
             Tarefa t = new Tarefa(1, "teste", "teeeeeste", DateTime.Now, Status.Andamento);
-            
             connection = new FbConnection(Conexao);
-            FbCommand comando = new FbCommand("INSERT INTO ATORES (ID,PRIMEIRO_NOME, ULTIMO_NOME, SEXO) " +
-                "VALUES (24,'JENIFER', 'MATTES', 'F')", connection);
+
+
+            FbCommand comando = new FbCommand(QueryBuilder.DbInsert(t.TableName, t.DbCollumns, t.GetValues));
+            //FbCommand comando = new FbCommand("INSERT INTO ATORES (ID,PRIMEIRO_NOME, ULTIMO_NOME, SEXO) " +
+            //  "VALUES (24,'JENIFER', 'MATTES', 'F')", connection);
             connection.Open();
             try
             {

@@ -42,19 +42,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {}
+    "C:\\Users\\jenif\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Documents\\Sources\\CSharp\\GestaoDeTarefas\\GestaoDeTarefas\\GestaoDeTarefas\\GestaoDeTarefas.csproj",
+      "projectUniqueName": "D:\\Arquivos Jeni\\programação e teoria\\fontes_de_projetos\\CSharp\\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\\GestaoDeTarefas\\GestaoDeTarefas.csproj",
       "projectName": "GestaoDeTarefas",
-      "projectPath": "C:\\Users\\User\\Documents\\Sources\\CSharp\\GestaoDeTarefas\\GestaoDeTarefas\\GestaoDeTarefas\\GestaoDeTarefas.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Documents\\Sources\\CSharp\\GestaoDeTarefas\\GestaoDeTarefas\\GestaoDeTarefas\\obj\\",
+      "projectPath": "D:\\Arquivos Jeni\\programação e teoria\\fontes_de_projetos\\CSharp\\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\\GestaoDeTarefas\\GestaoDeTarefas.csproj",
+      "packagesPath": "C:\\Users\\jenif\\.nuget\\packages\\",
+      "outputPath": "D:\\Arquivos Jeni\\programação e teoria\\fontes_de_projetos\\CSharp\\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\\GestaoDeTarefas\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\jenif\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -62,6 +62,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -74,6 +75,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -96,6 +102,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[7.0.19, 7.0.19]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[7.0.19, 7.0.19]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[7.0.19, 7.0.19]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[7.0.19, 7.0.19]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
@@ -104,7 +128,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

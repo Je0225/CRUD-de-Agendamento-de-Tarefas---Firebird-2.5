@@ -1,0 +1,138 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Arquivos Jeni\\programa\u00E7\u00E3o e teoria\\fontes_de_projetos\\CSharp\\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8B6A6C54-5DFB-4022-86B8-7006CE28C9ED}|GestaoDeTarefas\\GestaoDeTarefas.csproj|d:\\arquivos jeni\\programa\u00E7\u00E3o e teoria\\fontes_de_projetos\\csharp\\crud-de-agendamento-de-tarefas---firebird-2.5\\gestaodetarefas\\querybuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B6A6C54-5DFB-4022-86B8-7006CE28C9ED}|GestaoDeTarefas\\GestaoDeTarefas.csproj|solutionrelative:gestaodetarefas\\querybuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B6A6C54-5DFB-4022-86B8-7006CE28C9ED}|GestaoDeTarefas\\GestaoDeTarefas.csproj|d:\\arquivos jeni\\programa\u00E7\u00E3o e teoria\\fontes_de_projetos\\csharp\\crud-de-agendamento-de-tarefas---firebird-2.5\\gestaodetarefas\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B6A6C54-5DFB-4022-86B8-7006CE28C9ED}|GestaoDeTarefas\\GestaoDeTarefas.csproj|solutionrelative:gestaodetarefas\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B6A6C54-5DFB-4022-86B8-7006CE28C9ED}|GestaoDeTarefas\\GestaoDeTarefas.csproj|d:\\arquivos jeni\\programa\u00E7\u00E3o e teoria\\fontes_de_projetos\\csharp\\crud-de-agendamento-de-tarefas---firebird-2.5\\gestaodetarefas\\tarefa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B6A6C54-5DFB-4022-86B8-7006CE28C9ED}|GestaoDeTarefas\\GestaoDeTarefas.csproj|solutionrelative:gestaodetarefas\\tarefa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B6A6C54-5DFB-4022-86B8-7006CE28C9ED}|GestaoDeTarefas\\GestaoDeTarefas.csproj|d:\\arquivos jeni\\programa\u00E7\u00E3o e teoria\\fontes_de_projetos\\csharp\\crud-de-agendamento-de-tarefas---firebird-2.5\\gestaodetarefas\\model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B6A6C54-5DFB-4022-86B8-7006CE28C9ED}|GestaoDeTarefas\\GestaoDeTarefas.csproj|solutionrelative:gestaodetarefas\\model.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B6A6C54-5DFB-4022-86B8-7006CE28C9ED}|GestaoDeTarefas\\GestaoDeTarefas.csproj|d:\\arquivos jeni\\programa\u00E7\u00E3o e teoria\\fontes_de_projetos\\csharp\\crud-de-agendamento-de-tarefas---firebird-2.5\\gestaodetarefas\\status.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B6A6C54-5DFB-4022-86B8-7006CE28C9ED}|GestaoDeTarefas\\GestaoDeTarefas.csproj|solutionrelative:gestaodetarefas\\status.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B6A6C54-5DFB-4022-86B8-7006CE28C9ED}|GestaoDeTarefas\\GestaoDeTarefas.csproj|D:\\Arquivos Jeni\\programa\u00E7\u00E3o e teoria\\fontes_de_projetos\\CSharp\\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\\gestaodetarefas\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8B6A6C54-5DFB-4022-86B8-7006CE28C9ED}|GestaoDeTarefas\\GestaoDeTarefas.csproj|solutionrelative:gestaodetarefas\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8B6A6C54-5DFB-4022-86B8-7006CE28C9ED}|GestaoDeTarefas\\GestaoDeTarefas.csproj|d:\\arquivos jeni\\programa\u00E7\u00E3o e teoria\\fontes_de_projetos\\csharp\\crud-de-agendamento-de-tarefas---firebird-2.5\\gestaodetarefas\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B6A6C54-5DFB-4022-86B8-7006CE28C9ED}|GestaoDeTarefas\\GestaoDeTarefas.csproj|solutionrelative:gestaodetarefas\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "D:\\Arquivos Jeni\\programa\u00E7\u00E3o e teoria\\fontes_de_projetos\\CSharp\\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\\GestaoDeTarefas\\Form1.cs",
+              "RelativeDocumentMoniker": "GestaoDeTarefas\\Form1.cs",
+              "ToolTip": "D:\\Arquivos Jeni\\programa\u00E7\u00E3o e teoria\\fontes_de_projetos\\CSharp\\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\\GestaoDeTarefas\\Form1.cs",
+              "RelativeToolTip": "GestaoDeTarefas\\Form1.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAACsAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-19T00:41:37.023Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Model.cs",
+              "DocumentMoniker": "D:\\Arquivos Jeni\\programa\u00E7\u00E3o e teoria\\fontes_de_projetos\\CSharp\\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\\GestaoDeTarefas\\Model.cs",
+              "RelativeDocumentMoniker": "GestaoDeTarefas\\Model.cs",
+              "ToolTip": "D:\\Arquivos Jeni\\programa\u00E7\u00E3o e teoria\\fontes_de_projetos\\CSharp\\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\\GestaoDeTarefas\\Model.cs",
+              "RelativeToolTip": "GestaoDeTarefas\\Model.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-19T00:41:37.113Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "QueryBuilder.cs",
+              "DocumentMoniker": "D:\\Arquivos Jeni\\programa\u00E7\u00E3o e teoria\\fontes_de_projetos\\CSharp\\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\\GestaoDeTarefas\\QueryBuilder.cs",
+              "RelativeDocumentMoniker": "GestaoDeTarefas\\QueryBuilder.cs",
+              "ToolTip": "D:\\Arquivos Jeni\\programa\u00E7\u00E3o e teoria\\fontes_de_projetos\\CSharp\\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\\GestaoDeTarefas\\QueryBuilder.cs",
+              "RelativeToolTip": "GestaoDeTarefas\\QueryBuilder.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-19T00:41:37.118Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Status.cs",
+              "DocumentMoniker": "D:\\Arquivos Jeni\\programa\u00E7\u00E3o e teoria\\fontes_de_projetos\\CSharp\\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\\GestaoDeTarefas\\Status.cs",
+              "RelativeDocumentMoniker": "GestaoDeTarefas\\Status.cs",
+              "ToolTip": "D:\\Arquivos Jeni\\programa\u00E7\u00E3o e teoria\\fontes_de_projetos\\CSharp\\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\\GestaoDeTarefas\\Status.cs",
+              "RelativeToolTip": "GestaoDeTarefas\\Status.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-19T00:41:37.123Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Form1.cs [Projeto]",
+              "DocumentMoniker": "D:\\Arquivos Jeni\\programa\u00E7\u00E3o e teoria\\fontes_de_projetos\\CSharp\\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\\GestaoDeTarefas\\Form1.cs",
+              "RelativeDocumentMoniker": "GestaoDeTarefas\\Form1.cs",
+              "ToolTip": "D:\\Arquivos Jeni\\programa\u00E7\u00E3o e teoria\\fontes_de_projetos\\CSharp\\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\\GestaoDeTarefas\\Form1.cs [Projeto]",
+              "RelativeToolTip": "GestaoDeTarefas\\Form1.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-19T00:41:44.74Z",
+              "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Arquivos Jeni\\programa\u00E7\u00E3o e teoria\\fontes_de_projetos\\CSharp\\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\\GestaoDeTarefas\\Program.cs",
+              "RelativeDocumentMoniker": "GestaoDeTarefas\\Program.cs",
+              "ToolTip": "D:\\Arquivos Jeni\\programa\u00E7\u00E3o e teoria\\fontes_de_projetos\\CSharp\\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\\GestaoDeTarefas\\Program.cs",
+              "RelativeToolTip": "GestaoDeTarefas\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-19T00:41:44.743Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Tarefa.cs",
+              "DocumentMoniker": "D:\\Arquivos Jeni\\programa\u00E7\u00E3o e teoria\\fontes_de_projetos\\CSharp\\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\\GestaoDeTarefas\\Tarefa.cs",
+              "RelativeDocumentMoniker": "GestaoDeTarefas\\Tarefa.cs",
+              "ToolTip": "D:\\Arquivos Jeni\\programa\u00E7\u00E3o e teoria\\fontes_de_projetos\\CSharp\\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\\GestaoDeTarefas\\Tarefa.cs",
+              "RelativeToolTip": "GestaoDeTarefas\\Tarefa.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAowBUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-19T00:41:44.747Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -12,8 +12,8 @@ namespace GestaoDeTarefas
 
         public abstract String TableName { get; set; }
 
-        public abstract String[] GetValues();
+        public abstract String[] GetValues { get; set; }
 
-        public abstract String[] DbCollumns();
+        public abstract String[] DbCollumns { get; set; }
     }
 }

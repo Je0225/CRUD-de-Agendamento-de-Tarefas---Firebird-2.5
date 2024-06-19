@@ -1,10 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "J3GLruMSJE45MNW54PiEPuoszOD6BwpciztP4X7rgFT2JsZmU1kTweYab5O3YwwsbCuWx06YezZmbsBWe40TuQ==",
+  "dgSpecHash": "2osp9XFcU2o=",
   "success": true,
-  "projectFilePath": "C:\\Users\\User\\Documents\\Sources\\CSharp\\GestaoDeTarefas\\GestaoDeTarefas\\GestaoDeTarefas\\GestaoDeTarefas.csproj",
+  "projectFilePath": "D:\\Arquivos Jeni\\programação e teoria\\fontes_de_projetos\\CSharp\\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\\GestaoDeTarefas\\GestaoDeTarefas.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\User\\.nuget\\packages\\firebirdsql.data.firebirdclient\\10.3.1\\firebirdsql.data.firebirdclient.10.3.1.nupkg.sha512"
+    "C:\\Users\\jenif\\.nuget\\packages\\firebirdsql.data.firebirdclient\\10.3.1\\firebirdsql.data.firebirdclient.10.3.1.nupkg.sha512",
+    "C:\\Users\\jenif\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.19\\microsoft.windowsdesktop.app.ref.7.0.19.nupkg.sha512",
+    "C:\\Users\\jenif\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.19\\microsoft.netcore.app.ref.7.0.19.nupkg.sha512",
+    "C:\\Users\\jenif\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.19\\microsoft.aspnetcore.app.ref.7.0.19.nupkg.sha512",
+    "C:\\Users\\jenif\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.19\\microsoft.netcore.app.host.win-x64.7.0.19.nupkg.sha512"
   ],
   "logs": []
 }
