@@ -14,6 +14,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = GestaoDeTarefas
-build_property.ProjectDir = D:\Arquivos Jeni\programação e teoria\fontes_de_projetos\CSharp\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\GestaoDeTarefas\
-build_property.EnableComHosting = 
-build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.ProjectDir = C:\Users\User\Documents\Sources\CSharp\GestaoDeTarefas\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\GestaoDeTarefas\

@@ -10,34 +10,29 @@ namespace GestaoDeTarefas
     {
         public String Conexao = File.ReadAllText(Environment.CurrentDirectory + "\\Banco\\Firebird.conf");
         public FbConnection connection;
+        Tarefa t = new Tarefa(2, "teste", "teeeeeste", DateTime.Now, Status.Andamento);
 
-        public Form1()
-        {
+        public Form1() {
             InitializeComponent();
         }
 
-        private void btnTestarConexao_Click(object sender, EventArgs e)
-        {
+        private void btnTestarConexao_Click(object sender, EventArgs e) {
             connection = new FbConnection(Conexao);
-            FbCommand comando = new FbCommand("select * from tarefas", connection);
+            FbCommand comando = new FbCommand(QueryBuilder.DbSelect(t.TableName), connection);
             FbDataAdapter data = new FbDataAdapter(comando);
             DataSet dataset = new DataSet();
             connection.Open();
             data.Fill(dataset, "tarefas");
-            
+
             dgvAtores.DataSource = dataset;
             dgvAtores.DataMember = "tarefas";
             connection.Close();
         }
 
         private void btnInserirDado_Click(object sender, EventArgs e) {
-            Tarefa t = new Tarefa(1, "teste", "teeeeeste", DateTime.Now, Status.Andamento);
             connection = new FbConnection(Conexao);
 
-
-            FbCommand comando = new FbCommand(QueryBuilder.DbInsert(t.TableName, t.DbCollumns, t.GetValues));
-            //FbCommand comando = new FbCommand("INSERT INTO ATORES (ID,PRIMEIRO_NOME, ULTIMO_NOME, SEXO) " +
-            //  "VALUES (24,'JENIFER', 'MATTES', 'F')", connection);
+            FbCommand comando = new FbCommand(QueryBuilder.DbInsert(t.TableName, t.DbCollumns, t.GetValues), connection);
             connection.Open();
             try
             {
@@ -53,10 +48,9 @@ namespace GestaoDeTarefas
             MessageBox.Show("Inserção efetuada com sucesso!");
         }
 
-        private void btnExcluirDado_Click(object sender, EventArgs e)
-        {
+        private void btnExcluirDado_Click(object sender, EventArgs e) {
             connection = new FbConnection(Conexao);
-            FbCommand comando = new FbCommand("DELETE FROM ATORES WHERE ID = 24", connection);
+            FbCommand comando = new FbCommand(QueryBuilder.DbDelete(t.TableName, t.Id.ToString()), connection);
             connection.Open();
             try
             {
@@ -68,11 +62,22 @@ namespace GestaoDeTarefas
                 connection.Close();
                 return;
             }
-
             connection.Close();
             MessageBox.Show("Exclusão efetuada com sucesso!");
         }
 
+        private void btnSelectWhere_Click(object sender, EventArgs e) {
+            connection = new FbConnection(Conexao);
+            FbCommand comando = new FbCommand(QueryBuilder.DbSelect(t.TableName, true, t.Id.ToString()), connection);
+            FbDataAdapter data = new FbDataAdapter(comando);
+            DataSet dataset = new DataSet();
+            connection.Open();
+            data.Fill(dataset, "tarefas");
+
+            dgvAtores.DataSource = dataset;
+            dgvAtores.DataMember = "tarefas";
+            connection.Close();
+        }
     }
 
 }

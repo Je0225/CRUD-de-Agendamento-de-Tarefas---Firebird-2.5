@@ -32,6 +32,7 @@
             dgvAtores = new DataGridView();
             btnInserirDado = new Button();
             btnExcluirDado = new Button();
+            btnSelectWhere = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvAtores).BeginInit();
             SuspendLayout();
             // 
@@ -51,7 +52,7 @@
             dgvAtores.Location = new Point(12, 73);
             dgvAtores.Name = "dgvAtores";
             dgvAtores.RowTemplate.Height = 25;
-            dgvAtores.Size = new Size(711, 365);
+            dgvAtores.Size = new Size(706, 365);
             dgvAtores.TabIndex = 1;
             // 
             // btnInserirDado
@@ -74,11 +75,22 @@
             btnExcluirDado.UseVisualStyleBackColor = true;
             btnExcluirDado.Click += btnExcluirDado_Click;
             // 
+            // btnSelectWhere
+            // 
+            btnSelectWhere.Location = new Point(398, 24);
+            btnSelectWhere.Name = "btnSelectWhere";
+            btnSelectWhere.Size = new Size(121, 23);
+            btnSelectWhere.TabIndex = 5;
+            btnSelectWhere.Text = "Select com Where";
+            btnSelectWhere.UseVisualStyleBackColor = true;
+            btnSelectWhere.Click += btnSelectWhere_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnSelectWhere);
             Controls.Add(btnExcluirDado);
             Controls.Add(btnInserirDado);
             Controls.Add(dgvAtores);
@@ -95,5 +107,6 @@
         private DataGridView dgvAtores;
         private Button btnInserirDado;
         private Button btnExcluirDado;
+        private Button btnSelectWhere;
     }
 }

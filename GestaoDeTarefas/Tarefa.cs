@@ -27,8 +27,8 @@ namespace GestaoDeTarefas
             Data = data;
             Status = status;
             TableName = "tarefas";
-            GetValues = new[] {Id.ToString(), Titulo, Descricao, Data.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture), Status.ToString()};
-            DbCollumns = new[] { "id", "titulo", "Descricao", "data", "status" };
+            GetValues = new[] {Id.ToString(), $"'{Titulo}'", $"'{Descricao}'", $"'{Data.ToString("dd.MM.yyyy", CultureInfo.InvariantCulture)}'", $"'{Status}'"};
+            DbCollumns = new[] { "id", "titulo", "descricao", "data", "status" };
         }
     }
 }

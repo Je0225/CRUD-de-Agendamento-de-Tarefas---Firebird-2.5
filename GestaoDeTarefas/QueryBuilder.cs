@@ -1,46 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using String = System.String;
+﻿namespace GestaoDeTarefas {
 
-namespace GestaoDeTarefas
-{
-    public static class QueryBuilder
-    {
+    public static class QueryBuilder {
 
-        private static String PreparaQuery(String query, String[] colluns, String[] values){
-            String strColluns = "";
-            String strValues = "";
-
-            foreach (String c in values)
-            {
-                String col = c;
-                col = col.Insert(0, "'");
-                col = col.Insert(col.Length, "'");
-                if (strValues.Equals(""))
-                {
-                    strValues = col;
-                }
-                else
-                {
-                    strValues = $"{strValues},{col}";
-                }
+        private static String ArrayToString(String[] strings) {
+            String str = "";
+            foreach (String s in strings) {
+                str = !str.Equals("") ? $"{str},{s}" : s;
             }
-
-            foreach (String c in colluns)
-            {
-                strColluns = $"{strColluns}, {c}";
-            }
-            query = query.Replace("[colluns]", strColluns).Replace("[values]", strValues);
-            return query;
+            return str;
         }
 
-        public static String DbInsert(String tableName, String[] colluns, String[] values)
-        {
-            String sql = "insert into [tabela] ([collumns]) values ([values])";
-            sql = PreparaQuery(sql.Replace("[tabela]", tableName), colluns, values);
+        public static String DbInsert(String tableName, String[] colluns, String[] values) {
+            String sql = $"insert into {tableName} ({ArrayToString(colluns)}) values ({ArrayToString(values)})";
+            return sql;
+        }
+
+        public static String DbDelete(String tableName, String id) {
+            String sql = $"Delete from {tableName} t where t.id = {id}";
+            return sql;
+        }
+
+        public static String DbSelect(String tableName, Boolean comWhere = false, String id = "") {
+            String sql = $"select * from {tableName} t";
+            if (comWhere && !id.Equals("")) {
+                sql = sql + $" where t.id = {id}";
+            }
             return sql;
         }
     }
