@@ -10,14 +10,14 @@ namespace GestaoDeTarefas
     {
         public String Conexao = File.ReadAllText(Environment.CurrentDirectory + "\\Banco\\Firebird.conf");
         public FbConnection connection;
-        Tarefa t = new Tarefa(2, "teste", "teeeeeste", DateTime.Now, Status.Andamento);
+        Tarefa t = new Tarefa(3, "teste", "teeeeeste", DateTime.Now, Status.Andamento);
 
         public Form1() {
             InitializeComponent();
         }
 
         private void btnTestarConexao_Click(object sender, EventArgs e) {
-            connection = new FbConnection(Conexao);
+            /*connection = new FbConnection(Conexao);
             FbCommand comando = new FbCommand(QueryBuilder.DbSelect(t.TableName), connection);
             FbDataAdapter data = new FbDataAdapter(comando);
             DataSet dataset = new DataSet();
@@ -26,7 +26,8 @@ namespace GestaoDeTarefas
 
             dgvAtores.DataSource = dataset;
             dgvAtores.DataMember = "tarefas";
-            connection.Close();
+            connection.Close();*/
+            FirebirdActions.DbGenericSelect(t.TableName);
         }
 
         private void btnInserirDado_Click(object sender, EventArgs e) {
@@ -67,7 +68,7 @@ namespace GestaoDeTarefas
         }
 
         private void btnSelectWhere_Click(object sender, EventArgs e) {
-            connection = new FbConnection(Conexao);
+            /*connection = new FbConnection(Conexao);
             FbCommand comando = new FbCommand(QueryBuilder.DbSelect(t.TableName, true, t.Id.ToString()), connection);
             FbDataAdapter data = new FbDataAdapter(comando);
             DataSet dataset = new DataSet();
@@ -76,7 +77,8 @@ namespace GestaoDeTarefas
 
             dgvAtores.DataSource = dataset;
             dgvAtores.DataMember = "tarefas";
-            connection.Close();
+            connection.Close();*/
+            FirebirdActions.DbGenericSelect(t.TableName);
         }
     }
 

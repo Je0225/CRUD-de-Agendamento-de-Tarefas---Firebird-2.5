@@ -56,3 +56,6 @@ C:\Users\User\Documents\Sources\CSharp\GestaoDeTarefas\CRUD-de-Agendamento-de-Ta
 C:\Users\User\Documents\Sources\CSharp\GestaoDeTarefas\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\GestaoDeTarefas\obj\Debug\net7.0-windows\GestaoDeTarefas.pdb
 C:\Users\User\Documents\Sources\CSharp\GestaoDeTarefas\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\GestaoDeTarefas\obj\Debug\net7.0-windows\GestaoDeTarefas.genruntimeconfig.cache
 C:\Users\User\Documents\Sources\CSharp\GestaoDeTarefas\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\GestaoDeTarefas\obj\Debug\net7.0-windows\ref\GestaoDeTarefas.dll
+C:\Users\User\Documents\Sources\CSharp\GestaoDeTarefas\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\GestaoDeTarefas\obj\Debug\net7.0-windows\GestaoDeTarefas.FormPrincipal.resources
+C:\Users\User\Documents\Sources\CSharp\GestaoDeTarefas\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\GestaoDeTarefas\obj\Debug\net7.0-windows\GestaoDeTarefas.Properties.Resources.resources
+C:\Users\User\Documents\Sources\CSharp\GestaoDeTarefas\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\GestaoDeTarefas\obj\Debug\net7.0-windows\GestaoDeTarefas.FormRegistroTarefa.resources
