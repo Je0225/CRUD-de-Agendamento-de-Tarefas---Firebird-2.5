@@ -1,17 +1,15 @@
-﻿
-using System.Data;
-using System.Runtime.Serialization;
+﻿using System.Data;
 using FirebirdSql.Data.FirebirdClient;
 
-namespace GestaoDeTarefas
-{
+namespace GestaoDeTarefas {
+
     public static class FirebirdActions {
 
         private static readonly String strConexao = File.ReadAllText(Environment.CurrentDirectory + "\\Banco\\Firebird.conf");
 
         public static DataSet? DbGenericSelect(String tableName) {
             FbConnection conexao = new FbConnection(strConexao);
-            FbCommand comando = new FbCommand(QueryBuilder.DbSelect(tableName),conexao);
+            FbCommand comando = new FbCommand(QueryBuilder.DbSelect(tableName), conexao);
             try {
                 FbDataAdapter data = new FbDataAdapter(comando);
                 DataSet dataSet = new DataSet();
@@ -26,21 +24,35 @@ namespace GestaoDeTarefas
             }
         }
 
-        public static FbDataReader? DbSelectWhere(Model objeto) {
+        public static DataSet DbSelectWhere(String tableName, Int32 objectId) {
+            FbDataReader dados;
             FbConnection conexao = new FbConnection(strConexao);
-            FbCommand comando = new FbCommand(QueryBuilder.DbSelect(objeto.TableName, true, objeto.Id.ToString()), conexao);
+            FbCommand comando = new FbCommand(QueryBuilder.DbSelect(tableName, true, objectId.ToString()), conexao);
             try {
                 FbDataAdapter data = new FbDataAdapter(comando);
                 DataSet dataSet = new DataSet();
                 conexao.Open();
-                data.Fill(dataSet, objeto.TableName);
-                FbDataReader dataReader = comando.ExecuteReader();
+                data.Fill(dataSet, tableName);
                 conexao.Close();
-                return dataReader;
+                return dataSet;
             } catch(Exception e) {
                 MessageBox.Show("Firebird - Erro na busca do dado\n\n" + e.Message);
                 return null;
             }
+        }
+
+        public static String DbUpdate(Model objeto) {
+            FbConnection conexao = new FbConnection(strConexao);
+            FbCommand comando = new FbCommand(QueryBuilder.DbUpdate(objeto.TableName, objeto.DbCollumns, objeto.GetValues, objeto.Id), conexao);
+            conexao.Open();
+            try {
+                comando.ExecuteNonQuery();
+            } catch(Exception e) {
+                conexao.Close();
+                return "Firebird - Problema na Atualização/Update de Dados!\n\n" + e.Message;
+            }
+            conexao.Close();
+            return "Dado alterado com sucesso!";
         }
 
         public static String DbInsert(Model objeto) {
@@ -57,9 +69,9 @@ namespace GestaoDeTarefas
             return "Dado adicionado com sucesso!";
         }
 
-        public static String DbDelete(Model objeto) {
+        public static String DbDelete(String tableName, Int32 objectId) {
             FbConnection conexao = new FbConnection(strConexao);
-            FbCommand comando = new FbCommand(QueryBuilder.DbDelete(objeto.TableName, objeto.Id.ToString()), conexao);
+            FbCommand comando = new FbCommand(QueryBuilder.DbDelete(tableName, objectId.ToString()), conexao);
             conexao.Open();
             try {
                 comando.ExecuteNonQuery();
@@ -70,5 +82,7 @@ namespace GestaoDeTarefas
             conexao.Close();
             return ("Dado excluido com sucesso!");
         }
+
     }
+
 }

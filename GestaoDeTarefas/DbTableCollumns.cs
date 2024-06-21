@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GestaoDeTarefas
-{
+namespace GestaoDeTarefas {
     public static class DbTableCollumns {
 
         public static readonly String tableTarefas = "tarefas";

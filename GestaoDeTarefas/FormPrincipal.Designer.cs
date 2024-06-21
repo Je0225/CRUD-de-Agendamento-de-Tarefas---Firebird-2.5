@@ -40,11 +40,6 @@
             btnExcluir = new Button();
             btnAdicionar = new Button();
             listView1 = new ListView();
-            clmId = new ColumnHeader();
-            clmTitulo = new ColumnHeader();
-            clmDescricao = new ColumnHeader();
-            clmData = new ColumnHeader();
-            clmSituacao = new ColumnHeader();
             groupBox2.SuspendLayout();
             SuspendLayout();
             // 
@@ -131,7 +126,6 @@
             // 
             // listView1
             // 
-            listView1.Columns.AddRange(new ColumnHeader[] { clmId, clmTitulo, clmDescricao, clmData, clmSituacao });
             listView1.Location = new Point(160, 53);
             listView1.MultiSelect = false;
             listView1.Name = "listView1";
@@ -139,30 +133,6 @@
             listView1.TabIndex = 5;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = View.Details;
-            // 
-            // clmId
-            // 
-            clmId.Text = "Id";
-            // 
-            // clmTitulo
-            // 
-            clmTitulo.Text = "Titulo";
-            clmTitulo.Width = 120;
-            // 
-            // clmDescricao
-            // 
-            clmDescricao.Text = "Descrição";
-            clmDescricao.Width = 300;
-            // 
-            // clmData
-            // 
-            clmData.Text = "Data de Criação";
-            clmData.Width = 100;
-            // 
-            // clmSituacao
-            // 
-            clmSituacao.Text = "Situação";
-            clmSituacao.Width = 100;
             // 
             // FormPrincipal
             // 
@@ -193,10 +163,5 @@
         private Button btnEditar;
         private Button btnExcluir;
         private Button btnAdicionar;
-        private ColumnHeader clmId;
-        private ColumnHeader clmTitulo;
-        private ColumnHeader clmDescricao;
-        private ColumnHeader clmData;
-        private ColumnHeader clmSituacao;
     }
 }

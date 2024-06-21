@@ -44,7 +44,6 @@ C:\Users\User\Documents\Sources\CSharp\GestaoDeTarefas\CRUD-de-Agendamento-de-Ta
 C:\Users\User\Documents\Sources\CSharp\GestaoDeTarefas\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\GestaoDeTarefas\bin\Debug\net7.0-windows\GestaoDeTarefas.pdb
 C:\Users\User\Documents\Sources\CSharp\GestaoDeTarefas\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\GestaoDeTarefas\bin\Debug\net7.0-windows\FirebirdSql.Data.FirebirdClient.dll
 C:\Users\User\Documents\Sources\CSharp\GestaoDeTarefas\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\GestaoDeTarefas\obj\Debug\net7.0-windows\GestaoDeTarefas.csproj.AssemblyReference.cache
-C:\Users\User\Documents\Sources\CSharp\GestaoDeTarefas\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\GestaoDeTarefas\obj\Debug\net7.0-windows\GestaoDeTarefas.Form1.resources
 C:\Users\User\Documents\Sources\CSharp\GestaoDeTarefas\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\GestaoDeTarefas\obj\Debug\net7.0-windows\GestaoDeTarefas.csproj.GenerateResource.cache
 C:\Users\User\Documents\Sources\CSharp\GestaoDeTarefas\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\GestaoDeTarefas\obj\Debug\net7.0-windows\GestaoDeTarefas.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\User\Documents\Sources\CSharp\GestaoDeTarefas\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\GestaoDeTarefas\obj\Debug\net7.0-windows\GestaoDeTarefas.AssemblyInfoInputs.cache
