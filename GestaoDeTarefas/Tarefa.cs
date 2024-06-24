@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data;
 using System.Globalization;
 using FirebirdSql.Data;
 
@@ -8,27 +9,23 @@ namespace GestaoDeTarefas
 {
     public class Tarefa : Model {
 
-        public override String TableName { get; set; }
-
         public String Titulo { get; set; }
 
         public String Descricao { get; set; }
 
         public DateTime Data { get; set; }
 
-        public Status Status { get; set; }
-        public override string[] GetValues { get; set; }
-        public override string[] DbCollumns { get; set; }
+        public String Status { get; set; }
 
-        public Tarefa(int id, string titulo, string descricao, DateTime data, Status status){
-            Id = id;
+        public override string[] GetValues { get; set; }
+
+        public Tarefa(Int64 id, string titulo, string descricao, DateTime data, String status) {
             Titulo = titulo;
             Descricao = descricao;
             Data = data;
             Status = status;
-            TableName = DbTableCollumns.tableTarefas;
-            GetValues = new[] {Id.ToString(), $"'{Titulo}'", $"'{Descricao}'", $"'{Data.ToString("dd.MM.yyyy", CultureInfo.InvariantCulture)}'", $"'{Status}'"};
-            DbCollumns = DbTableCollumns.collumnsTarefas;
+            Id = id;
+            GetValues = new[] { Id.ToString(), $"'{Titulo}'", $"'{Descricao}'", $"'{Data.ToString("dd.MM.yyyy", CultureInfo.InvariantCulture)}'", $"'{Status}'" };
         }
     }
 }

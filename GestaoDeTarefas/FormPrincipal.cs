@@ -1,56 +1,66 @@
 ﻿using System.Data;
+using static GestaoDeTarefas.DbMapeamento;
 
 namespace GestaoDeTarefas {
 
     public partial class FormPrincipal: Form {
 
+        private readonly DbComandos transacoesTarefas = new(tabelaTarefas, colunasTarefas, GENERATOR_TAREFAS);
+
         public FormPrincipal() {
             InitializeComponent();
-            MontaColunasListView(listView1, DbTableCollumns.collumnsTarefas, DbTableCollumns.tableTarefas);
-            PopulaListView(listView1, DbTableCollumns.collumnsTarefas, DbTableCollumns.tableTarefas);
+            MontaColunasListView(lvTarefas, colunasTarefas);
+            PopulaListView(lvTarefas, colunasTarefas, tabelaTarefas);
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e) {
             FormRegistroTarefa frmRegistroTarefa = new FormRegistroTarefa();
             frmRegistroTarefa.ShowDialog();
-            PopulaListView(listView1, DbTableCollumns.collumnsTarefas, DbTableCollumns.tableTarefas); // firebird geradores
-            // criar gerador - chamar gerador - a cada chamada é incrementado uma unidade
+            PopulaListView(lvTarefas, colunasTarefas, tabelaTarefas);
         }
 
         private void btnExcluir_Click(object sender, EventArgs e) {
-            DialogResult result = MessageBox.Show("Deseja excluir permanentemente essa(s) tarefa(s)?", "Aviso!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
-            if (result == DialogResult.OK) {
-                FirebirdActions.DbDelete(DbTableCollumns.tableTarefas, (Int32)listView1.SelectedItems[0].Tag);
+            if (lvTarefas.SelectedItems.Count.Equals(0)) {
+                MessageBox.Show(@"Selecione uma tarefa da lista para excluir!");
+                return;
             }
-            PopulaListView(listView1, DbTableCollumns.collumnsTarefas, DbTableCollumns.tableTarefas);
+            DialogResult result = MessageBox.Show(@"Deseja excluir a tarefa permanentemente?", @"Aviso!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+            if (result == DialogResult.OK) {
+                MessageBox.Show(transacoesTarefas.DbDelete((Int32)lvTarefas.SelectedItems[0].Tag));
+                PopulaListView(lvTarefas, colunasTarefas, tabelaTarefas);
+            }
         }
 
         private void btnEditar_Click(object sender, EventArgs e) {
-            FormRegistroTarefa frmRegistroTarefa = new FormRegistroTarefa((Int32)listView1.SelectedItems[0].Tag);
+            if (lvTarefas.SelectedItems.Count.Equals(0)) {
+                MessageBox.Show(@"Selecione uma tarefa da lista para editar!");
+                return;
+            }
+            FormRegistroTarefa frmRegistroTarefa = new FormRegistroTarefa((Int32)lvTarefas.SelectedItems[0].Tag);
             frmRegistroTarefa.ShowDialog();
-            PopulaListView(listView1, DbTableCollumns.collumnsTarefas, DbTableCollumns.tableTarefas);
+            PopulaListView(lvTarefas, colunasTarefas, tabelaTarefas);
         }
 
-        private void MontaColunasListView(ListView lv, String[] collumns, String tableName) {
+        private void MontaColunasListView(ListView lv, String[] collumns) {
             for (int i = 0; i < collumns.Length; i++) {
                 lv.Columns.Add(new ColumnHeader { DisplayIndex = i, Text = collumns[i] });
             }
-            PopulaListView(listView1, DbTableCollumns.collumnsTarefas, DbTableCollumns.tableTarefas);
+            PopulaListView(lvTarefas, colunasTarefas, tabelaTarefas);
         }
 
         private void PopulaListView(ListView lv, String[] collumns, String tableName) {
             lv.Items.Clear();
-            DataSet? data = FirebirdActions.DbGenericSelect(tableName);
-            if (data is not null) {
-                String[] row = new String[collumns.Length];
-                for (int i = 0; i < data.Tables[0].Rows.Count; i++) {
-                    for (int j = 0; j < collumns.Length; j++) {
-                        row[j] = data.Tables[0].Rows[i].Field<Object>(j).ToString();
-                    }
-                    lv.Items.Add(new ListViewItem(row) { Tag = data.Tables[0].Rows[i].Field<int>(0) });
+            DataSet? data = transacoesTarefas.DbGenericSelect();
+            if (data is null) {
+                return;
+            }
+            String[] linha = new String[collumns.Length];
+            for (int i = 0; i < data.Tables[0].Rows.Count; i++) {
+                for (int j = 0; j < collumns.Length; j++) {
+                    linha[j] = data.Tables[0].Rows[i].Field<Object>(j).ToString();
                 }
+                lv.Items.Add(new ListViewItem(linha) { Tag = data.Tables[0].Rows[i].Field<int>(0) });
             }
         }
     }
-
 }

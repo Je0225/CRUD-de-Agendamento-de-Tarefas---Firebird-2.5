@@ -8,12 +8,8 @@ namespace GestaoDeTarefas
 {
     public abstract class Model {
 
-        public Int32 Id { get; set; }
-
-        public abstract String TableName { get; set; }
+        public Int64 Id { get; set; }
 
         public abstract String[] GetValues { get; set; }
-
-        public abstract String[] DbCollumns { get; set; }
     }
 }
