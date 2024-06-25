@@ -3,7 +3,7 @@ using FirebirdSql.Data.FirebirdClient;
 
 namespace GestaoDeTarefas {
 
-    record DbComandos: ConstrutorDeQueries {
+    public record DbComandos: ConstrutorDeQueries{
 
         private  String strConexao { get; set; }
 
@@ -23,7 +23,7 @@ namespace GestaoDeTarefas {
             GeneratorName = generatorName;
         }
 
-        private DataSet? MontaDataSet(FbCommand comando, String msgExessao) {
+        private DataSet? MontaDataSet(FbCommand comando, String msgExcecao) {
             try {
                 FbDataAdapter data = new FbDataAdapter(comando);
                 DataSet dataSet = new DataSet();
@@ -32,7 +32,7 @@ namespace GestaoDeTarefas {
                 conexao.Close();
                 return dataSet;
             } catch(Exception e) {
-                MessageBox.Show(msgExessao + e.Message);
+                MessageBox.Show(msgExcecao + e.Message);
                 return null;
             }
         }
@@ -59,6 +59,11 @@ namespace GestaoDeTarefas {
             return MontaDataSet(comando, "Firebird - Erro na busca do dado\n\n");
         }
 
+        public DataSet? ExecutaSql(String sql) {
+            FbCommand comando = new FbCommand(sql, conexao);
+            return MontaDataSet(comando, "Firebird - Erro ao buscar dados\n\n");
+        }
+
         public String DbUpdate(Model objeto) {
             FbCommand comando = new FbCommand(QueryUpdate(TableName, DbCollumns, objeto.GetValues, objeto.Id), conexao);
             return ExecutaAlteracao(comando, "Firebird - Problema na Atualização/Update de Dados!\n\n", "Dado alterado com sucesso!");
@@ -69,8 +74,8 @@ namespace GestaoDeTarefas {
             return ExecutaAlteracao(comando, "Firebird - Problema na Inserção de Dados!\n\n", "Dado adicionado com sucesso!");
         }
 
-        public String DbDelete(Int32 objectId) {
-            FbCommand comando = new FbCommand(QueryDelete(TableName, objectId), conexao);
+        public String DbDelete(Model objeto) {
+            FbCommand comando = new FbCommand(QueryDelete(TableName, objeto.Id), conexao);
             return ExecutaAlteracao(comando, "Firebird - Problema na Exclusão de Dados!\n\n", "Dado excluido com sucesso!");
         }
 

@@ -113,12 +113,17 @@
             // 
             // lvListasTarefas
             // 
-            lvListasTarefas.Dock = DockStyle.Left;
+            lvListasTarefas.Dock = DockStyle.Fill;
+            lvListasTarefas.FullRowSelect = true;
             lvListasTarefas.Location = new Point(131, 64);
+            lvListasTarefas.MultiSelect = false;
             lvListasTarefas.Name = "lvListasTarefas";
             lvListasTarefas.Size = new Size(336, 459);
             lvListasTarefas.TabIndex = 4;
+            lvListasTarefas.Tag = "ListaDeTarefas";
             lvListasTarefas.UseCompatibleStateImageBehavior = false;
+            lvListasTarefas.View = View.Details;
+            lvListasTarefas.SelectedIndexChanged += lvListasTarefas_SelectedIndexChanged;
             // 
             // panel10
             // 
@@ -155,6 +160,7 @@
             btnEditaLista.TabIndex = 2;
             btnEditaLista.Text = "Editar";
             btnEditaLista.UseVisualStyleBackColor = true;
+            btnEditaLista.Click += btnEditaLista_Click;
             // 
             // btnExcluirLista
             // 
@@ -164,6 +170,7 @@
             btnExcluirLista.TabIndex = 1;
             btnExcluirLista.Text = "Excluir";
             btnExcluirLista.UseVisualStyleBackColor = true;
+            btnExcluirLista.Click += btnExcluirLista_Click;
             // 
             // btnAddLista
             // 
@@ -173,6 +180,7 @@
             btnAddLista.TabIndex = 0;
             btnAddLista.Text = "Adicionar";
             btnAddLista.UseVisualStyleBackColor = true;
+            btnAddLista.Click += btnAddLista_Click;
             // 
             // panel7
             // 
@@ -200,11 +208,12 @@
             // lvTarefas
             // 
             lvTarefas.Dock = DockStyle.Fill;
+            lvTarefas.FullRowSelect = true;
             lvTarefas.Location = new Point(133, 64);
-            lvTarefas.MultiSelect = false;
             lvTarefas.Name = "lvTarefas";
             lvTarefas.Size = new Size(384, 459);
             lvTarefas.TabIndex = 15;
+            lvTarefas.Tag = "Tarefa";
             lvTarefas.UseCompatibleStateImageBehavior = false;
             lvTarefas.View = View.Details;
             // 
@@ -302,7 +311,6 @@
         private Panel panel1;
         private Panel panel6;
         private GroupBox bgListasDeTarefas;
-        private ListView lvListasTarefas;
         private Panel panel10;
         private Panel panel9;
         private Panel panel8;
@@ -319,5 +327,6 @@
         private Button btnEditarTarefa;
         private Button btnAdicionarTarefa;
         private Button btnExcluirTarefa;
+        private ListView lvListasTarefas;
     }
 }

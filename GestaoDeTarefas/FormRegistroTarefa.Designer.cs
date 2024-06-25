@@ -36,11 +36,15 @@
             lblDescricao = new Label();
             lblTitulo = new Label();
             cbSituacao = new ComboBox();
+            lvlistasTarefas = new ListView();
+            groupBox1 = new GroupBox();
+            btnSelecionar = new Button();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(384, 169);
+            btnCancelar.Location = new Point(400, 310);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(97, 23);
             btnCancelar.TabIndex = 0;
@@ -50,7 +54,7 @@
             // 
             // btnSalvar
             // 
-            btnSalvar.Location = new Point(281, 169);
+            btnSalvar.Location = new Point(297, 310);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(97, 23);
             btnSalvar.TabIndex = 1;
@@ -60,22 +64,22 @@
             // 
             // tbTitulo
             // 
-            tbTitulo.Location = new Point(99, 30);
+            tbTitulo.Location = new Point(95, 30);
             tbTitulo.Name = "tbTitulo";
-            tbTitulo.Size = new Size(382, 23);
+            tbTitulo.Size = new Size(386, 23);
             tbTitulo.TabIndex = 2;
             // 
             // tbDescricao
             // 
-            tbDescricao.Location = new Point(99, 61);
+            tbDescricao.Location = new Point(94, 61);
             tbDescricao.Name = "tbDescricao";
-            tbDescricao.Size = new Size(382, 23);
+            tbDescricao.Size = new Size(387, 23);
             tbDescricao.TabIndex = 3;
             // 
             // lblSituacao
             // 
             lblSituacao.AutoSize = true;
-            lblSituacao.Location = new Point(30, 96);
+            lblSituacao.Location = new Point(30, 252);
             lblSituacao.Name = "lblSituacao";
             lblSituacao.Size = new Size(52, 15);
             lblSituacao.TabIndex = 5;
@@ -105,16 +109,50 @@
             // cbSituacao
             // 
             cbSituacao.FormattingEnabled = true;
-            cbSituacao.Location = new Point(99, 96);
+            cbSituacao.Location = new Point(94, 252);
             cbSituacao.Name = "cbSituacao";
-            cbSituacao.Size = new Size(157, 23);
+            cbSituacao.Size = new Size(162, 23);
             cbSituacao.TabIndex = 8;
+            // 
+            // lvlistasTarefas
+            // 
+            lvlistasTarefas.FullRowSelect = true;
+            lvlistasTarefas.Location = new Point(65, 22);
+            lvlistasTarefas.MultiSelect = false;
+            lvlistasTarefas.Name = "lvlistasTarefas";
+            lvlistasTarefas.Size = new Size(380, 97);
+            lvlistasTarefas.TabIndex = 9;
+            lvlistasTarefas.Tag = "ListaDeTarefas";
+            lvlistasTarefas.UseCompatibleStateImageBehavior = false;
+            lvlistasTarefas.View = View.Details;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(btnSelecionar);
+            groupBox1.Controls.Add(lvlistasTarefas);
+            groupBox1.Location = new Point(30, 90);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(468, 156);
+            groupBox1.TabIndex = 10;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Listas de Tarefas";
+            // 
+            // btnSelecionar
+            // 
+            btnSelecionar.Location = new Point(370, 125);
+            btnSelecionar.Name = "btnSelecionar";
+            btnSelecionar.Size = new Size(75, 23);
+            btnSelecionar.TabIndex = 10;
+            btnSelecionar.Text = "Selecionar";
+            btnSelecionar.UseVisualStyleBackColor = true;
+            btnSelecionar.Click += btnSelecionar_Click;
             // 
             // FormRegistroTarefa
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(547, 216);
+            ClientSize = new Size(533, 345);
+            Controls.Add(groupBox1);
             Controls.Add(cbSituacao);
             Controls.Add(lblTitulo);
             Controls.Add(lblDescricao);
@@ -128,6 +166,7 @@
             Name = "FormRegistroTarefa";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Registro da Tarefa";
+            groupBox1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -142,5 +181,8 @@
         private Label lblDescricao;
         private Label lblTitulo;
         private ComboBox cbSituacao;
+        private ListView lvlistasTarefas;
+        private GroupBox groupBox1;
+        private Button btnSelecionar;
     }
 }

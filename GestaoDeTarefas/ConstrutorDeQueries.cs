@@ -1,6 +1,6 @@
 ﻿namespace GestaoDeTarefas {
 
-     record ConstrutorDeQueries {
+    public record ConstrutorDeQueries{
 
         private static String ArrayEmString(String[] strings) { 
             String str = "";

@@ -1,42 +1,45 @@
 ﻿using System.Data;
-using FirebirdSql.Data.FirebirdClient;
-using System.Globalization;
-using System.Linq.Expressions;
-using System.Windows.Forms;
 using static GestaoDeTarefas.StatusTarefas;
 using static GestaoDeTarefas.DbMapeamento;
+using static GestaoDeTarefas.ListViewSources;
 
-namespace GestaoDeTarefas {
+namespace GestaoDeTarefas
+{
 
-    public partial class FormRegistroTarefa: Form{
+    public partial class FormRegistroTarefa : Form {
 
-        private readonly DbComandos transacoes = new DbComandos(tabelaTarefas, colunasTarefas, GENERATOR_TAREFAS);
-        private Int64 ObjectId { get; set; }
+        private readonly DbComandos transacoesTarefas = new DbComandos(TabelaTarefas, ColunasTarefas, GeneratorTarefas);
+        private readonly DbComandos transacoesListas = new DbComandos(TabelaListasTarefas, ColunasListasTarefas, GeneratorListasTarefas);
+        private Tarefa? tarefa { get; set; }
 
-        public FormRegistroTarefa(Int64 objectId = -1) {
+        private ListaDeTarefas listaSelecionada { get; set; }
+
+        public FormRegistroTarefa(Tarefa? tarefa = null) {
             InitializeComponent();
-            ObjectId = objectId;
+            this.tarefa = tarefa;
             cbSituacao.Items.AddRange(Status);
-            if (ObjectId.Equals(-1)) {
-                return; 
+            MontaColunasListView(lvlistasTarefas, ColunasListasTarefas);
+            PopulaListView(lvlistasTarefas);
+            if (this.tarefa == null) {
+                return;
             }
-            DataSet? dados = transacoes.DbSelectWhere(ObjectId);
-            tbTitulo.Text = dados.Tables[0].Rows[0].Field<Object>(1)?.ToString();
-            tbDescricao.Text = dados.Tables[0].Rows[0].Field<Object>(2)?.ToString();
-            cbSituacao.Text = dados.Tables[0].Rows[0].Field<Object>(4)?.ToString();
+            tbTitulo.Text = this.tarefa.Titulo;
+            tbDescricao.Text = this.tarefa.Descricao;
+            cbSituacao.Text = this.tarefa.Status;
+            listaSelecionada = this.tarefa.Lista;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e) {
             // to do:validação dos campos
             Tarefa tarefa;
             String mensagem;
-            if (ObjectId.Equals(-1)) {
-                ObjectId = transacoes.DbSelectGeneratorId();
-                tarefa = new Tarefa(ObjectId, tbTitulo.Text, tbDescricao.Text, DateTime.Now, (String)cbSituacao.SelectedItem);
-                mensagem = transacoes.DbInsert(tarefa);
-            } else {
-                tarefa = new Tarefa(ObjectId, tbTitulo.Text, tbDescricao.Text, DateTime.Now, (String)cbSituacao.SelectedItem);
-                mensagem = transacoes.DbUpdate(tarefa);
+            if (this.tarefa == null) {
+                tarefa = new Tarefa(transacoesTarefas.DbSelectGeneratorId(), tbTitulo.Text, tbDescricao.Text, DateTime.Now, (String)cbSituacao.SelectedItem, listaSelecionada);
+                mensagem = transacoesTarefas.DbInsert(tarefa);
+            }
+            else {
+                tarefa = new Tarefa(this.tarefa.Id, tbTitulo.Text, tbDescricao.Text, DateTime.Now, (String)cbSituacao.SelectedItem, listaSelecionada);
+                mensagem = transacoesTarefas.DbUpdate(tarefa);
             }
             MessageBox.Show(mensagem);
             DialogResult = DialogResult.OK;
@@ -44,6 +47,10 @@ namespace GestaoDeTarefas {
 
         private void btnCancelar_Click(object sender, EventArgs e) {
             DialogResult = DialogResult.Cancel;
+        }
+
+        private void btnSelecionar_Click(object sender, EventArgs e) {
+            listaSelecionada = (ListaDeTarefas)lvlistasTarefas.SelectedItems[0].Tag;
         }
     }
 

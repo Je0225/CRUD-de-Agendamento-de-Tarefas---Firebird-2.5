@@ -7,9 +7,14 @@ using System.Threading.Tasks;
 namespace GestaoDeTarefas {
     public static class DbMapeamento {
 
-        public static readonly String tabelaTarefas = "tarefas";
-        public static readonly String[] colunasTarefas = new[] { "id", "titulo", "descricao", "data", "status" };
-        public const String GENERATOR_TAREFAS = "gen_id_tarefas";
+        // TAREFAS
+        public static readonly String TabelaTarefas = "tarefas";
+        public static readonly String[] ColunasTarefas = new[] { "id", "titulo", "descricao", "data", "status", "lista"};
+        public static readonly String GeneratorTarefas = "gen_id_tarefas";
 
+        // LISTAS_TAREFAS
+        public static readonly String TabelaListasTarefas = "listas_tarefas";
+        public static readonly String[] ColunasListasTarefas = new[] { "id", "nome" };
+        public static readonly String GeneratorListasTarefas = "gen_id_listas_tarefas";
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GestaoDeTarefas
 {
-    public abstract class Model {
+    public abstract class Model{
 
         public Int64 Id { get; set; }
 

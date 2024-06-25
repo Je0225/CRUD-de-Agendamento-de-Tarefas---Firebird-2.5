@@ -58,3 +58,4 @@ C:\Users\User\Documents\Sources\CSharp\GestaoDeTarefas\CRUD-de-Agendamento-de-Ta
 C:\Users\User\Documents\Sources\CSharp\GestaoDeTarefas\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\GestaoDeTarefas\obj\Debug\net7.0-windows\GestaoDeTarefas.FormPrincipal.resources
 C:\Users\User\Documents\Sources\CSharp\GestaoDeTarefas\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\GestaoDeTarefas\obj\Debug\net7.0-windows\GestaoDeTarefas.Properties.Resources.resources
 C:\Users\User\Documents\Sources\CSharp\GestaoDeTarefas\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\GestaoDeTarefas\obj\Debug\net7.0-windows\GestaoDeTarefas.FormRegistroTarefa.resources
+C:\Users\User\Documents\Sources\CSharp\GestaoDeTarefas\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\GestaoDeTarefas\obj\Debug\net7.0-windows\GestaoDeTarefas.FormRegistroLista.resources
