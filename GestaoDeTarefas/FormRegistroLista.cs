@@ -1,28 +1,47 @@
-﻿using static GestaoDeTarefas.DbMapeamento;
-namespace GestaoDeTarefas {
+﻿namespace GestaoDeTarefas
+{
 
-    public partial class FormRegistroLista: Form {
+    public partial class FormRegistroLista : Form
+    {
 
-        private readonly DbComandos transacoesLista = new DbComandos(TabelaListasTarefas, ColunasListasTarefas, GeneratorListasTarefas);
+        private DbComandos transacoesLista { get; set; }
 
         private ListaDeTarefas? Lista { get; set; }
 
-        public FormRegistroLista(ListaDeTarefas? lista = null) {
+        public FormRegistroLista(ListaDeTarefas? lista = null)
+        {
             InitializeComponent();
+            transacoesLista = new DbComandos(ListaDeTarefas.TableName, ListaDeTarefas.TableColluns, ListaDeTarefas.GeneratorName);
             Lista = lista;
-            if (Lista == null) {
+            if (Lista == null)
+            {
                 return;
             }
             tbNome.Text = Lista.Nome;
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e) {
-            // validar campos
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            if (tbNome.Text.Trim().Equals(""))
+            {
+                MessageBox.Show(@"Informe o nome da lista!");
+                DialogResult = DialogResult.Abort;
+                return;
+            }
             String mensagem;
-            if (Lista == null) {
-                ListaDeTarefas lista = new ListaDeTarefas(transacoesLista.DbSelectGeneratorId(), tbNome.Text);
+            if (Lista == null)
+            {
+                Int64 id = transacoesLista.DbSelectGeneratorId();
+                if (id.Equals(-1))
+                {
+                    DialogResult = DialogResult.Abort;
+                    return;
+                }
+                ListaDeTarefas lista = new ListaDeTarefas(id, tbNome.Text);
                 mensagem = transacoesLista.DbInsert(lista);
-            } else {
+            }
+            else
+            {
                 ListaDeTarefas lista = new ListaDeTarefas(Lista.Id, tbNome.Text);
                 mensagem = transacoesLista.DbUpdate(lista);
             }
@@ -30,7 +49,8 @@ namespace GestaoDeTarefas {
             DialogResult = DialogResult.OK;
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e) {
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
             DialogResult = DialogResult.Cancel;
         }
     }

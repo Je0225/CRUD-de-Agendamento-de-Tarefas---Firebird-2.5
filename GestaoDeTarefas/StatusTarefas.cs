@@ -8,7 +8,7 @@ namespace GestaoDeTarefas
 {
     public static class StatusTarefas {
 
-        public static readonly String[] Status = new[] {
+        public static readonly String[] status = new[] {
             "Pendente",
             "Andamento",
             "Concluido"

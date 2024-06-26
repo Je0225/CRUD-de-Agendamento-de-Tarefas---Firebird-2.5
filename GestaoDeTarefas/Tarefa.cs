@@ -19,7 +19,13 @@ namespace GestaoDeTarefas
 
         public ListaDeTarefas Lista { get; set; }
 
-        public override string[] GetValues { get; set; }
+        public sealed override String[] GetValues { get; set; }
+
+        public new static String TableName => "tarefas";
+
+        public new static String[] TableColluns => new[] { "id", "titulo", "descricao", "data", "status", "lista" };
+
+        public new static String GeneratorName => "gen_id_tarefas";
 
         public Tarefa(Int64 id, string titulo, string descricao, DateTime data, String status, ListaDeTarefas lista) {
             Titulo = titulo;

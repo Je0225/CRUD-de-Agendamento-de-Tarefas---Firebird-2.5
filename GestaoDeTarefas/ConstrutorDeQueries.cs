@@ -42,8 +42,8 @@
             return sql;
         }
 
-        protected String QuerySelectGeneratorId(String GeneratorName) {
-            return $"SELECT GEN_ID( {GeneratorName}, 1 ) FROM RDB$DATABASE;";
+        protected String QuerySelectGeneratorId(String generatorName) {
+            return $"SELECT GEN_ID( {generatorName}, 1 ) FROM RDB$DATABASE;";
         }
     }
 

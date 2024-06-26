@@ -36,14 +36,14 @@
             // 
             // tbNome
             // 
-            tbNome.Location = new Point(83, 21);
+            tbNome.Location = new Point(75, 21);
             tbNome.Name = "tbNome";
             tbNome.Size = new Size(396, 23);
             tbNome.TabIndex = 1;
             // 
             // btnSalvar
             // 
-            btnSalvar.Location = new Point(323, 67);
+            btnSalvar.Location = new Point(319, 60);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(75, 23);
             btnSalvar.TabIndex = 2;
@@ -53,7 +53,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(404, 67);
+            btnCancelar.Location = new Point(400, 60);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 23);
             btnCancelar.TabIndex = 3;
@@ -64,7 +64,7 @@
             // lblNome
             // 
             lblNome.AutoSize = true;
-            lblNome.Location = new Point(37, 24);
+            lblNome.Location = new Point(29, 24);
             lblNome.Name = "lblNome";
             lblNome.Size = new Size(40, 15);
             lblNome.TabIndex = 4;
@@ -74,13 +74,16 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(517, 116);
+            ClientSize = new Size(517, 107);
             Controls.Add(lblNome);
             Controls.Add(btnCancelar);
             Controls.Add(btnSalvar);
             Controls.Add(tbNome);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "FormRegistroLista";
-            Text = "FormRegistroLista";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Registro de Lista";
             ResumeLayout(false);
             PerformLayout();
         }

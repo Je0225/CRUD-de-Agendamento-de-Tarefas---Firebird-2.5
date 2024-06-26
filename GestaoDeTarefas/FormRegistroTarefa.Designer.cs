@@ -66,14 +66,14 @@
             // 
             tbTitulo.Location = new Point(95, 30);
             tbTitulo.Name = "tbTitulo";
-            tbTitulo.Size = new Size(386, 23);
+            tbTitulo.Size = new Size(380, 23);
             tbTitulo.TabIndex = 2;
             // 
             // tbDescricao
             // 
             tbDescricao.Location = new Point(94, 61);
             tbDescricao.Name = "tbDescricao";
-            tbDescricao.Size = new Size(387, 23);
+            tbDescricao.Size = new Size(381, 23);
             tbDescricao.TabIndex = 3;
             // 
             // lblSituacao

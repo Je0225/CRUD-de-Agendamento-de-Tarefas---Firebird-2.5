@@ -11,5 +11,11 @@ namespace GestaoDeTarefas
         public Int64 Id { get; set; }
 
         public abstract String[] GetValues { get; set; }
+
+        //public static String TableName { get; set; }
+
+        //public static String[] TableColluns { get; set; }
+
+       // public static String GeneratorName { get; set; }
     }
 }

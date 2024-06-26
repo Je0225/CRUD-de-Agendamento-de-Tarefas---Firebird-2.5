@@ -64,7 +64,7 @@
             panelSuperior.Dock = DockStyle.Top;
             panelSuperior.Location = new Point(0, 0);
             panelSuperior.Name = "panelSuperior";
-            panelSuperior.Size = new Size(1146, 32);
+            panelSuperior.Size = new Size(1146, 18);
             panelSuperior.TabIndex = 0;
             // 
             // panelInferior
@@ -83,17 +83,17 @@
             // panel1
             // 
             panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(1098, 32);
+            panel1.Location = new Point(1116, 18);
             panel1.Name = "panel1";
-            panel1.Size = new Size(48, 578);
+            panel1.Size = new Size(30, 592);
             panel1.TabIndex = 2;
             // 
             // panel6
             // 
             panel6.Dock = DockStyle.Left;
-            panel6.Location = new Point(0, 32);
+            panel6.Location = new Point(0, 18);
             panel6.Name = "panel6";
-            panel6.Size = new Size(47, 578);
+            panel6.Size = new Size(27, 592);
             panel6.TabIndex = 0;
             // 
             // bgListasDeTarefas
@@ -104,9 +104,10 @@
             bgListasDeTarefas.Controls.Add(panel8);
             bgListasDeTarefas.Controls.Add(panel7);
             bgListasDeTarefas.Dock = DockStyle.Left;
-            bgListasDeTarefas.Location = new Point(47, 32);
+            bgListasDeTarefas.FlatStyle = FlatStyle.System;
+            bgListasDeTarefas.Location = new Point(27, 18);
             bgListasDeTarefas.Name = "bgListasDeTarefas";
-            bgListasDeTarefas.Size = new Size(502, 578);
+            bgListasDeTarefas.Size = new Size(502, 592);
             bgListasDeTarefas.TabIndex = 11;
             bgListasDeTarefas.TabStop = false;
             bgListasDeTarefas.Text = "Listas De tarefas";
@@ -115,10 +116,10 @@
             // 
             lvListasTarefas.Dock = DockStyle.Fill;
             lvListasTarefas.FullRowSelect = true;
-            lvListasTarefas.Location = new Point(131, 64);
+            lvListasTarefas.Location = new Point(125, 49);
             lvListasTarefas.MultiSelect = false;
             lvListasTarefas.Name = "lvListasTarefas";
-            lvListasTarefas.Size = new Size(336, 459);
+            lvListasTarefas.Size = new Size(342, 516);
             lvListasTarefas.TabIndex = 4;
             lvListasTarefas.Tag = "ListaDeTarefas";
             lvListasTarefas.UseCompatibleStateImageBehavior = false;
@@ -128,17 +129,17 @@
             // panel10
             // 
             panel10.Dock = DockStyle.Top;
-            panel10.Location = new Point(131, 19);
+            panel10.Location = new Point(125, 19);
             panel10.Name = "panel10";
-            panel10.Size = new Size(336, 45);
+            panel10.Size = new Size(342, 30);
             panel10.TabIndex = 3;
             // 
             // panel9
             // 
             panel9.Dock = DockStyle.Bottom;
-            panel9.Location = new Point(131, 523);
+            panel9.Location = new Point(125, 565);
             panel9.Name = "panel9";
-            panel9.Size = new Size(336, 52);
+            panel9.Size = new Size(342, 24);
             panel9.TabIndex = 2;
             // 
             // panel8
@@ -149,12 +150,12 @@
             panel8.Dock = DockStyle.Left;
             panel8.Location = new Point(3, 19);
             panel8.Name = "panel8";
-            panel8.Size = new Size(128, 556);
+            panel8.Size = new Size(122, 570);
             panel8.TabIndex = 1;
             // 
             // btnEditaLista
             // 
-            btnEditaLista.Location = new Point(23, 189);
+            btnEditaLista.Location = new Point(22, 189);
             btnEditaLista.Name = "btnEditaLista";
             btnEditaLista.Size = new Size(75, 23);
             btnEditaLista.TabIndex = 2;
@@ -164,7 +165,7 @@
             // 
             // btnExcluirLista
             // 
-            btnExcluirLista.Location = new Point(23, 110);
+            btnExcluirLista.Location = new Point(22, 110);
             btnExcluirLista.Name = "btnExcluirLista";
             btnExcluirLista.Size = new Size(75, 23);
             btnExcluirLista.TabIndex = 1;
@@ -174,7 +175,7 @@
             // 
             // btnAddLista
             // 
-            btnAddLista.Location = new Point(23, 40);
+            btnAddLista.Location = new Point(22, 40);
             btnAddLista.Name = "btnAddLista";
             btnAddLista.Size = new Size(75, 23);
             btnAddLista.TabIndex = 0;
@@ -187,7 +188,7 @@
             panel7.Dock = DockStyle.Right;
             panel7.Location = new Point(467, 19);
             panel7.Name = "panel7";
-            panel7.Size = new Size(32, 556);
+            panel7.Size = new Size(32, 570);
             panel7.TabIndex = 0;
             // 
             // gbTarefas
@@ -198,9 +199,10 @@
             gbTarefas.Controls.Add(panel4);
             gbTarefas.Controls.Add(panel3);
             gbTarefas.Dock = DockStyle.Fill;
-            gbTarefas.Location = new Point(549, 32);
+            gbTarefas.FlatStyle = FlatStyle.System;
+            gbTarefas.Location = new Point(529, 18);
             gbTarefas.Name = "gbTarefas";
-            gbTarefas.Size = new Size(549, 578);
+            gbTarefas.Size = new Size(587, 592);
             gbTarefas.TabIndex = 12;
             gbTarefas.TabStop = false;
             gbTarefas.Text = "Tarefas";
@@ -209,9 +211,9 @@
             // 
             lvTarefas.Dock = DockStyle.Fill;
             lvTarefas.FullRowSelect = true;
-            lvTarefas.Location = new Point(133, 64);
+            lvTarefas.Location = new Point(127, 49);
             lvTarefas.Name = "lvTarefas";
-            lvTarefas.Size = new Size(384, 459);
+            lvTarefas.Size = new Size(428, 516);
             lvTarefas.TabIndex = 15;
             lvTarefas.Tag = "Tarefa";
             lvTarefas.UseCompatibleStateImageBehavior = false;
@@ -220,25 +222,25 @@
             // panel2
             // 
             panel2.Dock = DockStyle.Right;
-            panel2.Location = new Point(517, 64);
+            panel2.Location = new Point(555, 49);
             panel2.Name = "panel2";
-            panel2.Size = new Size(29, 459);
+            panel2.Size = new Size(29, 516);
             panel2.TabIndex = 14;
             // 
             // panel5
             // 
             panel5.Dock = DockStyle.Bottom;
-            panel5.Location = new Point(133, 523);
+            panel5.Location = new Point(127, 565);
             panel5.Name = "panel5";
-            panel5.Size = new Size(413, 52);
+            panel5.Size = new Size(457, 24);
             panel5.TabIndex = 13;
             // 
             // panel4
             // 
             panel4.Dock = DockStyle.Top;
-            panel4.Location = new Point(133, 19);
+            panel4.Location = new Point(127, 19);
             panel4.Name = "panel4";
-            panel4.Size = new Size(413, 45);
+            panel4.Size = new Size(457, 30);
             panel4.TabIndex = 12;
             // 
             // panel3
@@ -249,12 +251,12 @@
             panel3.Dock = DockStyle.Left;
             panel3.Location = new Point(3, 19);
             panel3.Name = "panel3";
-            panel3.Size = new Size(130, 556);
+            panel3.Size = new Size(124, 570);
             panel3.TabIndex = 11;
             // 
             // btnEditarTarefa
             // 
-            btnEditarTarefa.Location = new Point(26, 189);
+            btnEditarTarefa.Location = new Point(24, 189);
             btnEditarTarefa.Name = "btnEditarTarefa";
             btnEditarTarefa.Size = new Size(75, 23);
             btnEditarTarefa.TabIndex = 8;
@@ -264,7 +266,7 @@
             // 
             // btnAdicionarTarefa
             // 
-            btnAdicionarTarefa.Location = new Point(26, 40);
+            btnAdicionarTarefa.Location = new Point(24, 40);
             btnAdicionarTarefa.Name = "btnAdicionarTarefa";
             btnAdicionarTarefa.Size = new Size(75, 23);
             btnAdicionarTarefa.TabIndex = 6;
@@ -274,7 +276,7 @@
             // 
             // btnExcluirTarefa
             // 
-            btnExcluirTarefa.Location = new Point(26, 110);
+            btnExcluirTarefa.Location = new Point(24, 110);
             btnExcluirTarefa.Name = "btnExcluirTarefa";
             btnExcluirTarefa.Size = new Size(75, 23);
             btnExcluirTarefa.TabIndex = 7;
