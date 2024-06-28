@@ -50,9 +50,18 @@
             panel5 = new Panel();
             panel4 = new Panel();
             panel3 = new Panel();
+            button1 = new Button();
             btnEditarTarefa = new Button();
             btnAdicionarTarefa = new Button();
             btnExcluirTarefa = new Button();
+            clmId = new ColumnHeader();
+            clmTitulo = new ColumnHeader();
+            clmDescricao = new ColumnHeader();
+            clmData = new ColumnHeader();
+            clmStatus = new ColumnHeader();
+            clmLista = new ColumnHeader();
+            colId = new ColumnHeader();
+            clmNome = new ColumnHeader();
             bgListasDeTarefas.SuspendLayout();
             panel8.SuspendLayout();
             gbTarefas.SuspendLayout();
@@ -114,6 +123,7 @@
             // 
             // lvListasTarefas
             // 
+            lvListasTarefas.Columns.AddRange(new ColumnHeader[] { colId, clmNome });
             lvListasTarefas.Dock = DockStyle.Fill;
             lvListasTarefas.FullRowSelect = true;
             lvListasTarefas.Location = new Point(125, 49);
@@ -121,7 +131,7 @@
             lvListasTarefas.Name = "lvListasTarefas";
             lvListasTarefas.Size = new Size(342, 516);
             lvListasTarefas.TabIndex = 4;
-            lvListasTarefas.Tag = "ListaDeTarefas";
+            lvListasTarefas.Tag = "";
             lvListasTarefas.UseCompatibleStateImageBehavior = false;
             lvListasTarefas.View = View.Details;
             lvListasTarefas.SelectedIndexChanged += lvListasTarefas_SelectedIndexChanged;
@@ -209,13 +219,14 @@
             // 
             // lvTarefas
             // 
+            lvTarefas.Columns.AddRange(new ColumnHeader[] { clmId, clmTitulo, clmDescricao, clmData, clmStatus, clmLista });
             lvTarefas.Dock = DockStyle.Fill;
             lvTarefas.FullRowSelect = true;
             lvTarefas.Location = new Point(127, 49);
             lvTarefas.Name = "lvTarefas";
             lvTarefas.Size = new Size(428, 516);
             lvTarefas.TabIndex = 15;
-            lvTarefas.Tag = "Tarefa";
+            lvTarefas.Tag = "";
             lvTarefas.UseCompatibleStateImageBehavior = false;
             lvTarefas.View = View.Details;
             // 
@@ -245,6 +256,7 @@
             // 
             // panel3
             // 
+            panel3.Controls.Add(button1);
             panel3.Controls.Add(btnEditarTarefa);
             panel3.Controls.Add(btnAdicionarTarefa);
             panel3.Controls.Add(btnExcluirTarefa);
@@ -253,6 +265,16 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(124, 570);
             panel3.TabIndex = 11;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(13, 257);
+            button1.Name = "button1";
+            button1.Size = new Size(100, 25);
+            button1.TabIndex = 9;
+            button1.Text = "Todas as Tarefas";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // btnEditarTarefa
             // 
@@ -283,6 +305,45 @@
             btnExcluirTarefa.Text = "Excluir";
             btnExcluirTarefa.UseVisualStyleBackColor = true;
             btnExcluirTarefa.Click += btnExcluir_Click;
+            // 
+            // clmId
+            // 
+            clmId.Text = "Id";
+            // 
+            // clmTitulo
+            // 
+            clmTitulo.Text = "Título";
+            clmTitulo.Width = 200;
+            // 
+            // clmDescricao
+            // 
+            clmDescricao.Text = "Descrição ";
+            clmDescricao.TextAlign = HorizontalAlignment.Right;
+            clmDescricao.Width = 250;
+            // 
+            // clmData
+            // 
+            clmData.Text = "Data de Criação";
+            clmData.Width = 80;
+            // 
+            // clmStatus
+            // 
+            clmStatus.Text = "Status";
+            clmStatus.Width = 80;
+            // 
+            // clmLista
+            // 
+            clmLista.Text = "Lista";
+            clmLista.Width = 100;
+            // 
+            // colId
+            // 
+            colId.Text = "Id";
+            // 
+            // clmNome
+            // 
+            clmNome.Text = "Nome";
+            clmNome.Width = 200;
             // 
             // FormPrincipal
             // 
@@ -330,5 +391,14 @@
         private Button btnAdicionarTarefa;
         private Button btnExcluirTarefa;
         private ListView lvListasTarefas;
+        private Button button1;
+        private ColumnHeader clmId;
+        private ColumnHeader clmTitulo;
+        private ColumnHeader clmDescricao;
+        private ColumnHeader clmData;
+        private ColumnHeader clmStatus;
+        private ColumnHeader clmLista;
+        private ColumnHeader colId;
+        private ColumnHeader clmNome;
     }
 }

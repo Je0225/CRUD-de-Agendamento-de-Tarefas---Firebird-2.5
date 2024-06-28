@@ -1,8 +1,8 @@
 ﻿namespace GestaoDeTarefas {
 
-    public record ConstrutorDeQueries{
+    public static class ConstrutorDeQueries {
 
-        private static String ArrayEmString(String[] strings) { 
+        private static String ArrayEmString(String[] strings) {
             String str = "";
             foreach (String s in strings) {
                 str = !str.Equals("") ? $"{str},{s}" : s;
@@ -10,7 +10,7 @@
             return str;
         }
 
-        private  String IntercalaValoresEColunas(String[] colluns, String[] values) {
+        private static String IntercalaValoresEColunas(String[] colluns, String[] values) {
             String str = "";
             for (int i = 0; i < colluns.Length; i++) {
                 if (!i.Equals(colluns.Length - 1)) {
@@ -22,29 +22,30 @@
             return str;
         }
 
-        protected String QueryInsert(String tableName, String[] colluns, String[] values) {
-            return $"insert into {tableName} ({ArrayEmString(colluns)}) values ({ArrayEmString(values)})";
+        public static String QueryInsert(String TableName, String[] Colluns, String[] Values) {
+            return $"insert into {TableName} ({ArrayEmString(Colluns)}) values ({ArrayEmString(Values)})";
         }
 
-        protected String QueryUpdate(String tableName, String[] colluns, String[] values, Int64 idObject) {
-            return $"update {tableName} t set {IntercalaValoresEColunas(colluns, values)} where t.id = {idObject}"; 
+        public static String QueryUpdate(String TableName, String[] Colluns, String[] Values, Int64 idObject) {
+            return $"update {TableName} t set {IntercalaValoresEColunas(Colluns, Values)} where t.id = {idObject}";
         }
 
-        protected String QueryDelete(String tableName, Int64 id) {
-            return $"Delete from {tableName} t where t.id = {id}";
+        public static String QueryDelete(String TableName, Int64 Id) {
+            return $"Delete from {TableName} t where t.id = {Id}";
         }
 
-        protected String QuerySelect(String tableName, Boolean comWhere = false, Int64 id = -1) {
-            String sql = $"select * from {tableName} t";
+        public static String QuerySelect(String TableName, Boolean comWhere = false, Int64 id = -1) {
+            String sql = $"select * from {TableName} t";
             if (comWhere && !id.Equals(-1)) {
                 sql = sql + $" where t.id = {id}";
             }
             return sql;
         }
 
-        protected String QuerySelectGeneratorId(String generatorName) {
-            return $"SELECT GEN_ID( {generatorName}, 1 ) FROM RDB$DATABASE;";
+        public static String QuerySelectGeneratorId(String GeneratorName) {
+            return $"SELECT GEN_ID( {GeneratorName}, 1 ) FROM RDB$DATABASE;";
         }
+
     }
 
 }

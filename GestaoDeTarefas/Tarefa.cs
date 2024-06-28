@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Data;
-using System.Globalization;
-using FirebirdSql.Data;
+﻿using System.Globalization;
 
-namespace GestaoDeTarefas
-{
-    public class Tarefa : Model {
+namespace GestaoDeTarefas {
+
+    public class Tarefa{
+
+        public Int64 Id { get; set; }
 
         public String Titulo { get; set; }
 
@@ -19,22 +16,13 @@ namespace GestaoDeTarefas
 
         public ListaDeTarefas Lista { get; set; }
 
-        public sealed override String[] GetValues { get; set; }
-
-        public new static String TableName => "tarefas";
-
-        public new static String[] TableColluns => new[] { "id", "titulo", "descricao", "data", "status", "lista" };
-
-        public new static String GeneratorName => "gen_id_tarefas";
-
-        public Tarefa(Int64 id, string titulo, string descricao, DateTime data, String status, ListaDeTarefas lista) {
+        public Tarefa(Int64 id, string titulo, string descricao, String status, ListaDeTarefas lista) {
+            Id = id;
             Titulo = titulo;
             Descricao = descricao;
-            Data = data;
+            Data = DateTime.Now;
             Status = status;
-            Id = id;
             Lista = lista;
-            GetValues = new[] { Id.ToString(), $"'{Titulo}'", $"'{Descricao}'", $"'{Data.ToString("dd.MM.yyyy", CultureInfo.InvariantCulture)}'", $"'{Status}'", lista.Id.ToString()};
         }
     }
 }

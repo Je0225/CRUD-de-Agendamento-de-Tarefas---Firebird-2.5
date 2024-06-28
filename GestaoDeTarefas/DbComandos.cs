@@ -3,15 +3,15 @@ using FirebirdSql.Data.FirebirdClient;
 
 namespace GestaoDeTarefas {
 
-    public record DbComandos: ConstrutorDeQueries{
+    public class DbComandos: ConstrutorDeQueries {
 
-        private  String strConexao { get; set; }
+        private String strConexao { get; set; }
 
         private FbConnection conexao { get; set; }
 
         private String TableName { get; set; }
 
-        private String[] DbCollumns {get; set; }
+        private String[] DbCollumns { get; set; }
 
         private String GeneratorName { get; set; }
 
@@ -27,7 +27,7 @@ namespace GestaoDeTarefas {
             try {
                 FbDataAdapter data = new FbDataAdapter(comando);
                 DataSet dataSet = new DataSet();
-                conexao.Open();
+                conexao.Open();                                                
                 data.Fill(dataSet, TableName);
                 conexao.Close();
                 return dataSet;
@@ -52,6 +52,8 @@ namespace GestaoDeTarefas {
         public DataSet? DbGenericSelect() {
             FbCommand comando = new FbCommand(QuerySelect(TableName), conexao);
             return MontaDataSet(comando, "Firebird - Erro ao buscar dados\n\n");
+            comando.ExecuteReader();
+
         }
 
         public DataSet? DbSelectWhere(Int64 objectId) {
@@ -84,5 +86,7 @@ namespace GestaoDeTarefas {
             DataSet? dataSet = MontaDataSet(comando, "Firebird - Erro na busca do ID\n\n");
             return dataSet != null ? (Int64)dataSet.Tables[0].Rows[0].Field<Object>(0) : -1;
         }
+
     }
+
 }

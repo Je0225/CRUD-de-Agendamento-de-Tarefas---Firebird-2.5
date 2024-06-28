@@ -36,10 +36,6 @@
             lblDescricao = new Label();
             lblTitulo = new Label();
             cbSituacao = new ComboBox();
-            lvlistasTarefas = new ListView();
-            groupBox1 = new GroupBox();
-            btnSelecionar = new Button();
-            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // btnCancelar
@@ -114,45 +110,11 @@
             cbSituacao.Size = new Size(162, 23);
             cbSituacao.TabIndex = 8;
             // 
-            // lvlistasTarefas
-            // 
-            lvlistasTarefas.FullRowSelect = true;
-            lvlistasTarefas.Location = new Point(65, 22);
-            lvlistasTarefas.MultiSelect = false;
-            lvlistasTarefas.Name = "lvlistasTarefas";
-            lvlistasTarefas.Size = new Size(380, 97);
-            lvlistasTarefas.TabIndex = 9;
-            lvlistasTarefas.Tag = "ListaDeTarefas";
-            lvlistasTarefas.UseCompatibleStateImageBehavior = false;
-            lvlistasTarefas.View = View.Details;
-            // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(btnSelecionar);
-            groupBox1.Controls.Add(lvlistasTarefas);
-            groupBox1.Location = new Point(30, 90);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(468, 156);
-            groupBox1.TabIndex = 10;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Listas de Tarefas";
-            // 
-            // btnSelecionar
-            // 
-            btnSelecionar.Location = new Point(370, 125);
-            btnSelecionar.Name = "btnSelecionar";
-            btnSelecionar.Size = new Size(75, 23);
-            btnSelecionar.TabIndex = 10;
-            btnSelecionar.Text = "Selecionar";
-            btnSelecionar.UseVisualStyleBackColor = true;
-            btnSelecionar.Click += btnSelecionar_Click;
-            // 
             // FormRegistroTarefa
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(533, 345);
-            Controls.Add(groupBox1);
             Controls.Add(cbSituacao);
             Controls.Add(lblTitulo);
             Controls.Add(lblDescricao);
@@ -166,7 +128,6 @@
             Name = "FormRegistroTarefa";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Registro da Tarefa";
-            groupBox1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -181,8 +142,5 @@
         private Label lblDescricao;
         private Label lblTitulo;
         private ComboBox cbSituacao;
-        private ListView lvlistasTarefas;
-        private GroupBox groupBox1;
-        private Button btnSelecionar;
     }
 }
