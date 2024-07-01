@@ -1,6 +1,8 @@
-﻿namespace GestaoDeTarefas {
+﻿using GestaoDeTarefas.Domain;
 
-    public class CriarTarefaInput {
+namespace GestaoDeTarefas.Service {
+
+    public class CriarTarefaInputDto {
 
         public String Titulo { get; set; }
 
@@ -9,5 +11,7 @@
         public String Status { get; set; }
 
         public ListaDeTarefas lista { get; set; }
+
     }
+
 }

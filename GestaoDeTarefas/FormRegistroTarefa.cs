@@ -1,4 +1,5 @@
-﻿using static GestaoDeTarefas.StatusTarefas;
+﻿using GestaoDeTarefas.Domain;
+using GestaoDeTarefas.Service;
 
 namespace GestaoDeTarefas {
 
@@ -10,20 +11,18 @@ namespace GestaoDeTarefas {
 
         private TarefasServices services { get; set; }
 
-        public FormRegistroTarefa(ListaDeTarefas listaSelecionada, Tarefa? tarefa) {
+        public FormRegistroTarefa(TarefasServices services, ListaDeTarefas listaSelecionada, Tarefa? tarefa) {
             InitializeComponent();
-            services = new TarefasServices(new TarefaRepositoryFirebird(ConexaoFirebird.conexao));
+            this.services = services;
             Tarefa = tarefa;
             ListaSelecionada = listaSelecionada;
-            listaSelecionada = null;
-            cbSituacao.Items.AddRange(status);
+            cbSituacao.Items.AddRange(new []{"Pendente", "Andamento", "Concluido"});
             if (Tarefa == null) {
                 return;
             }
             tbTitulo.Text = Tarefa.Titulo;
             tbDescricao.Text = Tarefa.Descricao;
             cbSituacao.Text = Tarefa.Status;
-            listaSelecionada = Tarefa.Lista;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e) {
@@ -32,13 +31,16 @@ namespace GestaoDeTarefas {
             }
             String mensagem;
             if (Tarefa == null) {
-                mensagem = services.CriarTarefa(new CriarTarefaInput {
+                mensagem = services.CriarTarefa(new CriarTarefaInputDto {
                     Titulo = tbTitulo.Text,
                     Descricao = tbDescricao.Text,
                     Status = (String)cbSituacao.SelectedItem,
                     lista = ListaSelecionada
                 });
             } else {
+                Tarefa.Titulo = tbTitulo.Text;
+                Tarefa.Descricao = tbDescricao.Text;
+                Tarefa.Status = cbSituacao.SelectedItem.ToString();
                 mensagem = services.EditarTarefa(Tarefa);
             }
             MessageBox.Show(mensagem);

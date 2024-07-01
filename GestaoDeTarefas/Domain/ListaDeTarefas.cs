@@ -1,4 +1,4 @@
-﻿namespace GestaoDeTarefas {
+﻿namespace GestaoDeTarefas.Domain {
 
     public class ListaDeTarefas {
 

@@ -1,16 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GestaoDeTarefas.Domain;
+using GestaoDeTarefas.Repository;
 
-namespace GestaoDeTarefas
-{
-    internal class ListasDeTarefasServices {
+namespace GestaoDeTarefas.Service {
 
-        private ListaRepositoryFirebird repository => new();
+    public class ListasDeTarefasServices {
 
-        public String Inserir(CriarListaInput dados) {
+        private IListaTarefasRepository repository { get; }
+
+        public ListasDeTarefasServices(IListaTarefasRepository repository) {
+            this.repository = repository;
+        }
+
+        public String Inserir(CriarListaInputDto dados) {
             Int64 id = repository.GetNextId();
             ListaDeTarefas lista = new ListaDeTarefas(id, dados.Nome);
             return repository.Insert(lista);
@@ -27,5 +28,7 @@ namespace GestaoDeTarefas
         public List<ListaDeTarefas> BuscaListas() {
             return repository.SelectAll();
         }
+
     }
+
 }

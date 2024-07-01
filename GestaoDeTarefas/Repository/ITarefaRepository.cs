@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GestaoDeTarefas.Domain;
 
-namespace GestaoDeTarefas
-{
+namespace GestaoDeTarefas.Repository {
+
     public interface ITarefaRepository {
 
         String Insert(Tarefa tarefa);
@@ -19,5 +15,7 @@ namespace GestaoDeTarefas
         Int64 GetNextId();
 
         List<Tarefa> BuscaTarefasDaLista(Int64 id);
+
     }
+
 }

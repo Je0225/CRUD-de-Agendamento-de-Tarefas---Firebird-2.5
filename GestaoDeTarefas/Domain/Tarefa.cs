@@ -1,8 +1,6 @@
-﻿using System.Globalization;
+﻿namespace GestaoDeTarefas.Domain {
 
-namespace GestaoDeTarefas {
-
-    public class Tarefa{
+    public class Tarefa {
 
         public Int64 Id { get; set; }
 
@@ -24,5 +22,7 @@ namespace GestaoDeTarefas {
             Status = status;
             Lista = lista;
         }
+
     }
+
 }

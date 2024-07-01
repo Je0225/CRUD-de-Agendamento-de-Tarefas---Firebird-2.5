@@ -1,14 +1,17 @@
-﻿namespace GestaoDeTarefas {
+﻿using GestaoDeTarefas.Domain;
+using GestaoDeTarefas.Repository;
+
+namespace GestaoDeTarefas.Service {
 
     public class TarefasServices {
 
-        private ITarefaRepository repository { get;}
+        private ITarefaRepository repository { get; }
 
         public TarefasServices(ITarefaRepository repository) {
             this.repository = repository;
         }
 
-        public String CriarTarefa(CriarTarefaInput dados) {
+        public String CriarTarefa(CriarTarefaInputDto dados) {
             Int64 id = repository.GetNextId();
             Tarefa tarefa = new Tarefa(id, dados.Titulo, dados.Descricao, dados.Status, dados.lista);
             return repository.Insert(tarefa);
@@ -29,5 +32,7 @@
         public List<Tarefa> BuscaTarefasListaSelecionada(ListaDeTarefas lista) {
             return repository.BuscaTarefasDaLista(lista.Id);
         }
+
     }
+
 }

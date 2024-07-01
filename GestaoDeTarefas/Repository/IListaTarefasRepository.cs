@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GestaoDeTarefas.Domain;
 
-namespace GestaoDeTarefas
-{
-    internal interface IListaTarefasRepository {
+namespace GestaoDeTarefas.Repository {
+
+    public interface IListaTarefasRepository {
+
         String Insert(ListaDeTarefas lista);
 
         String Delete(ListaDeTarefas lista);
@@ -16,5 +13,7 @@ namespace GestaoDeTarefas
         List<ListaDeTarefas> SelectAll();
 
         Int64 GetNextId();
+
     }
+
 }
