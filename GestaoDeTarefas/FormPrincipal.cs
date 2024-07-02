@@ -1,11 +1,9 @@
 ﻿using GestaoDeTarefas.Domain;
 using GestaoDeTarefas.Service;
 
-namespace GestaoDeTarefas
-{
+namespace GestaoDeTarefas {
 
-    public partial class FormPrincipal : Form
-    {
+    public partial class FormPrincipal: Form {
 
         private Boolean TemListaSelecionada => lvListasTarefas.SelectedItems.Count > 0;
 
@@ -17,22 +15,18 @@ namespace GestaoDeTarefas
 
         private ListasDeTarefasServices serviceListas { get; }
 
-        public FormPrincipal(TarefasServices serviceTarefas, ListasDeTarefasServices serviceListas)
-        {
+        public FormPrincipal(TarefasServices serviceTarefas, ListasDeTarefasServices serviceListas) {
             InitializeComponent();
             this.serviceTarefas = serviceTarefas;
             this.serviceListas = serviceListas;
             PopulaListViewListas();
-            if (TemListaSelecionada)
-            {
+            if (TemListaSelecionada) {
                 PopulaListViewTarefas(serviceTarefas.BuscaTarefasListaSelecionada(ListaSelecionada));
             }
         }
 
-        private void btnAdicionar_Click(object sender, EventArgs e)
-        {
-            if (!TemListaSelecionada)
-            {
+        private void btnAdicionar_Click(object sender, EventArgs e) {
+            if (!TemListaSelecionada) {
                 MessageBox.Show(@"Selecione uma lista de tarefas para adicionar uma tarefa!");
                 return;
             }
@@ -41,25 +35,20 @@ namespace GestaoDeTarefas
             PopulaListViewTarefas(serviceTarefas.BuscaTarefasListaSelecionada(ListaSelecionada));
         }
 
-        private void btnExcluir_Click(object sender, EventArgs e)
-        {
-            if (!TemTarefaSelecionada)
-            {
+        private void btnExcluir_Click(object sender, EventArgs e) {
+            if (!TemTarefaSelecionada) {
                 MessageBox.Show(@"Selecione uma tarefa da lista para excluir!");
                 return;
             }
             DialogResult result = MessageBox.Show(@"Deseja excluir a tarefa permanentemente?", @"Aviso!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
-            if (result == DialogResult.OK)
-            {
+            if (result == DialogResult.OK) {
                 MessageBox.Show(serviceTarefas.ExcluirTarefa((Tarefa)lvTarefas.SelectedItems[0].Tag));
                 PopulaListViewTarefas(serviceTarefas.BuscaTarefasListaSelecionada(ListaSelecionada));
             }
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            if (!TemTarefaSelecionada)
-            {
+        private void btnEditar_Click(object sender, EventArgs e) {
+            if (!TemTarefaSelecionada) {
                 MessageBox.Show(@"Selecione uma tarefa da lista para editar!");
                 return;
             }
@@ -68,32 +57,26 @@ namespace GestaoDeTarefas
             PopulaListViewTarefas(serviceTarefas.BuscaTarefasListaSelecionada(ListaSelecionada));
         }
 
-        private void btnAddLista_Click(object sender, EventArgs e)
-        {
+        private void btnAddLista_Click(object sender, EventArgs e) {
             FormRegistroLista frmRegistroLista = new FormRegistroLista(serviceListas);
             frmRegistroLista.ShowDialog();
             PopulaListViewListas();
         }
 
-        private void btnExcluirLista_Click(object sender, EventArgs e)
-        {
-            if (!TemListaSelecionada)
-            {
+        private void btnExcluirLista_Click(object sender, EventArgs e) {
+            if (!TemListaSelecionada) {
                 MessageBox.Show(@"Selecione uma lista de tarefas da lista para excluir!");
                 return;
             }
             DialogResult result = MessageBox.Show(@"Deseja excluir a lista permanentemente? Todas as tarefas desta lista também serão excluídas", @"Aviso!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
-            if (result == DialogResult.OK)
-            {
+            if (result == DialogResult.OK) {
                 MessageBox.Show(serviceListas.Excluir(ListaSelecionada));
             }
             PopulaListViewListas();
         }
 
-        private void btnEditaLista_Click(object sender, EventArgs e)
-        {
-            if (!TemListaSelecionada)
-            {
+        private void btnEditaLista_Click(object sender, EventArgs e) {
+            if (!TemListaSelecionada) {
                 MessageBox.Show(@"Selecione uma lista para editar!");
                 return;
             }
@@ -102,42 +85,33 @@ namespace GestaoDeTarefas
             PopulaListViewListas();
         }
 
-        private void lvListasTarefas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (TemListaSelecionada)
-            {
+        private void lvListasTarefas_SelectedIndexChanged(object sender, EventArgs e) {
+            if (TemListaSelecionada) {
                 PopulaListViewTarefas(serviceTarefas.BuscaTarefasListaSelecionada(ListaSelecionada));
             }
         }
 
-        private void ListaTodasTarefas_Click(object sender, EventArgs e)
-        {
+        private void ListaTodasTarefas_Click(object sender, EventArgs e) {
             PopulaListViewTarefas(serviceTarefas.BuscaTodasAsTarefas());
         }
 
-        private void PopulaListViewTarefas(List<Tarefa> lista)
-        {
+        private void PopulaListViewTarefas(List<Tarefa> lista) {
             lvTarefas.Items.Clear();
-            if (lista.Count.Equals(0))
-            {
+            if (lista.Count.Equals(0)) {
                 return;
             }
-            foreach (Tarefa t in lista)
-            {
+            foreach (Tarefa t in lista) {
                 lvTarefas.Items.Add(new ListViewItem(new[] { t.Id.ToString(), t.Titulo, t.Descricao, t.Data.ToString("d"), t.Status, t.Lista.Nome }) { Tag = t });
             }
         }
 
-        private void PopulaListViewListas()
-        {
+        private void PopulaListViewListas() {
             lvListasTarefas.Items.Clear();
             List<ListaDeTarefas> listas = serviceListas.BuscaListas();
-            if (listas.Count.Equals(0))
-            {
+            if (listas.Count.Equals(0)) {
                 return;
             }
-            foreach (ListaDeTarefas lista in listas)
-            {
+            foreach (ListaDeTarefas lista in listas) {
                 lvListasTarefas.Items.Add(new ListViewItem(new[] { lista.Id.ToString(), lista.Nome }) { Tag = lista });
             }
         }

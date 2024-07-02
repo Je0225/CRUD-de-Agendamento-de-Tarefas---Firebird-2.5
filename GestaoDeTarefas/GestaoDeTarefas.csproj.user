@@ -10,5 +10,11 @@
     <Compile Update="FormRegistroTarefa.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FormSelecionaConexao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RegistroConexao.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

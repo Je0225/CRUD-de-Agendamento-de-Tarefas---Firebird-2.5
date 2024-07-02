@@ -24,6 +24,7 @@ namespace GestaoDeTarefas
             ListasDeTarefasServices listasServices = new ListasDeTarefasServices(repositoryListas);
 
             ApplicationConfiguration.Initialize();
+            Application.Run(new FormSelecionaConexao());
             Application.Run(new FormPrincipal(tarefasServices, listasServices));
 
             connection.Close();

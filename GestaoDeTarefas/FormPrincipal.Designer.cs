@@ -358,6 +358,7 @@
             Controls.Add(panelSuperior);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormPrincipal";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Gestão de Tarefas";
             bgListasDeTarefas.ResumeLayout(false);
             panel8.ResumeLayout(false);

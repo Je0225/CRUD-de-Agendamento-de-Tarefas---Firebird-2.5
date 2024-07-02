@@ -1,9 +1,11 @@
 ﻿using GestaoDeTarefas.Domain;
 using GestaoDeTarefas.Service;
 
-namespace GestaoDeTarefas {
+namespace GestaoDeTarefas
+{
 
-    public partial class FormRegistroTarefa: Form {
+    public partial class FormRegistroTarefa : Form
+    {
 
         private ListaDeTarefas ListaSelecionada { get; set; }
 
@@ -11,13 +13,15 @@ namespace GestaoDeTarefas {
 
         private TarefasServices services { get; set; }
 
-        public FormRegistroTarefa(TarefasServices services, ListaDeTarefas listaSelecionada, Tarefa? tarefa) {
+        public FormRegistroTarefa(TarefasServices services, ListaDeTarefas listaSelecionada, Tarefa? tarefa)
+        {
             InitializeComponent();
             this.services = services;
             Tarefa = tarefa;
             ListaSelecionada = listaSelecionada;
-            cbSituacao.Items.AddRange(new []{"Pendente", "Andamento", "Concluido"});
-            if (Tarefa == null) {
+            cbSituacao.Items.AddRange(new[] { "Pendente", "Andamento", "Concluido" });
+            if (Tarefa == null)
+            {
                 return;
             }
             tbTitulo.Text = Tarefa.Titulo;
@@ -25,19 +29,25 @@ namespace GestaoDeTarefas {
             cbSituacao.Text = Tarefa.Status;
         }
 
-        private void btnSalvar_Click(object sender, EventArgs e) {
-            if (!ValidaCampos()) {
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            if (!ValidaCampos())
+            {
                 return;
             }
             String mensagem;
-            if (Tarefa == null) {
-                mensagem = services.CriarTarefa(new CriarTarefaInputDto {
+            if (Tarefa == null)
+            {
+                mensagem = services.CriarTarefa(new CriarTarefaInputDto
+                {
                     Titulo = tbTitulo.Text,
                     Descricao = tbDescricao.Text,
                     Status = (String)cbSituacao.SelectedItem,
                     lista = ListaSelecionada
                 });
-            } else {
+            }
+            else
+            {
                 Tarefa.Titulo = tbTitulo.Text;
                 Tarefa.Descricao = tbDescricao.Text;
                 Tarefa.Status = cbSituacao.SelectedItem.ToString();
@@ -47,26 +57,30 @@ namespace GestaoDeTarefas {
             DialogResult = DialogResult.OK;
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e) {
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
             DialogResult = DialogResult.Cancel;
         }
 
-        private Boolean ValidaCampos() {
-            if (tbDescricao.Text.Trim().Equals("")) {
+        private Boolean ValidaCampos()
+        {
+            if (tbDescricao.Text.Trim().Equals(""))
+            {
                 MessageBox.Show(@"Informe uma Descrição!");
                 return false;
             }
-            if (tbTitulo.Text.Trim().Equals("")) {
+            if (tbTitulo.Text.Trim().Equals(""))
+            {
                 MessageBox.Show(@"Informe um título!");
                 return false;
             }
-            if (cbSituacao.SelectedItem == null) {
+            if (cbSituacao.SelectedItem == null)
+            {
                 MessageBox.Show(@"Informe o Status da Tarefa!");
                 return false;
             }
             return true;
         }
-
     }
 
 }

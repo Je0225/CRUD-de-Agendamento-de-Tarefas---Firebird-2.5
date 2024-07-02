@@ -40,7 +40,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(400, 310);
+            btnCancelar.Location = new Point(363, 115);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(97, 23);
             btnCancelar.TabIndex = 0;
@@ -50,7 +50,7 @@
             // 
             // btnSalvar
             // 
-            btnSalvar.Location = new Point(297, 310);
+            btnSalvar.Location = new Point(260, 115);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(97, 23);
             btnSalvar.TabIndex = 1;
@@ -60,14 +60,14 @@
             // 
             // tbTitulo
             // 
-            tbTitulo.Location = new Point(95, 30);
+            tbTitulo.Location = new Point(80, 21);
             tbTitulo.Name = "tbTitulo";
             tbTitulo.Size = new Size(380, 23);
             tbTitulo.TabIndex = 2;
             // 
             // tbDescricao
             // 
-            tbDescricao.Location = new Point(94, 61);
+            tbDescricao.Location = new Point(79, 50);
             tbDescricao.Name = "tbDescricao";
             tbDescricao.Size = new Size(381, 23);
             tbDescricao.TabIndex = 3;
@@ -75,7 +75,7 @@
             // lblSituacao
             // 
             lblSituacao.AutoSize = true;
-            lblSituacao.Location = new Point(30, 252);
+            lblSituacao.Location = new Point(15, 83);
             lblSituacao.Name = "lblSituacao";
             lblSituacao.Size = new Size(52, 15);
             lblSituacao.TabIndex = 5;
@@ -85,7 +85,7 @@
             // lblDescricao
             // 
             lblDescricao.AutoSize = true;
-            lblDescricao.Location = new Point(30, 61);
+            lblDescricao.Location = new Point(15, 53);
             lblDescricao.Name = "lblDescricao";
             lblDescricao.Size = new Size(58, 15);
             lblDescricao.TabIndex = 6;
@@ -95,7 +95,7 @@
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
-            lblTitulo.Location = new Point(30, 30);
+            lblTitulo.Location = new Point(15, 23);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(37, 15);
             lblTitulo.TabIndex = 7;
@@ -105,7 +105,7 @@
             // cbSituacao
             // 
             cbSituacao.FormattingEnabled = true;
-            cbSituacao.Location = new Point(94, 252);
+            cbSituacao.Location = new Point(79, 80);
             cbSituacao.Name = "cbSituacao";
             cbSituacao.Size = new Size(162, 23);
             cbSituacao.TabIndex = 8;
@@ -114,7 +114,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(533, 345);
+            ClientSize = new Size(491, 153);
             Controls.Add(cbSituacao);
             Controls.Add(lblTitulo);
             Controls.Add(lblDescricao);
