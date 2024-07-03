@@ -15,7 +15,14 @@ namespace GestaoDeTarefas
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
 
-            FbConnection connection = ConexaoFirebird.getConnetion();
+            ApplicationConfiguration.Initialize();
+            FormSelecionaConexao frmSelecionaConexao = new FormSelecionaConexao();
+            Application.Run(frmSelecionaConexao);
+            if (frmSelecionaConexao.DialogResult == DialogResult.Cancel) {
+                return;
+            } 
+            //FbConnection connection = ConexaoFirebird.getConnetion();
+            FbConnection connection = new FbConnection(frmSelecionaConexao.StrConexao);
             connection.Open();
 
             TarefaRepositoryFirebird repositoryTarefas = new TarefaRepositoryFirebird(connection);
@@ -23,8 +30,6 @@ namespace GestaoDeTarefas
             TarefasServices tarefasServices = new TarefasServices(repositoryTarefas);
             ListasDeTarefasServices listasServices = new ListasDeTarefasServices(repositoryListas);
 
-            ApplicationConfiguration.Initialize();
-            Application.Run(new FormSelecionaConexao());
             Application.Run(new FormPrincipal(tarefasServices, listasServices));
 
             connection.Close();

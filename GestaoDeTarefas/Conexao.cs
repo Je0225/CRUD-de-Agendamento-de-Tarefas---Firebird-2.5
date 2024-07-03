@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GestaoDeTarefas {
+﻿namespace GestaoDeTarefas {
 
     public class Conexao {
 
         public String Alias { get; set; }
 
-        public String Servidor {get; set; }
+        public String Servidor { get; set; }
 
-        public Int32 Porta {get; set; }
+        public Int32 Porta { get; set; }
 
         public String Ip { get; set; }
 
@@ -31,6 +25,7 @@ namespace GestaoDeTarefas {
             UserName = userName;
             Password = password;
         }
-    }
-}
 
+    }
+
+}

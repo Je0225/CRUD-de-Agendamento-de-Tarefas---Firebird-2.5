@@ -2,12 +2,14 @@
 
     public partial class RegistroConexao: Form {
 
+        private ConfFirebird FileFirebird { get; set; }
+
         private String Servidor {
             get {
                 if (rbRemote.Checked) {
-                    return rbRemote.Text;
+                    return (String)rbRemote.Tag;
                 }
-                return rbLocaHost.Text;
+                return (String)rbLocaHost.Tag;
             }
         }
 
@@ -22,7 +24,7 @@
 
         private String Ip {
             get {
-                if (Servidor.Equals(rbLocaHost.Name)) {
+                if (Servidor.Equals(rbLocaHost.Tag)) {
                     return "localhost";
                 }
                 return tbIpServidor.Text;
@@ -51,10 +53,28 @@
 
         private String Caminho => tbCaminho.Text;
 
-        public RegistroConexao() {
+        private Conexao? Conexao { get; set; }
+
+        public RegistroConexao(Conexao? conexao, ConfFirebird fileFirebird) {
             InitializeComponent();
+            FileFirebird = fileFirebird;
+            Conexao = conexao;
+            if (Conexao != null) {
+                tbAlias.Text = Conexao.Alias;
+                if (Conexao.Servidor.Equals("localhost")) {
+                    rbLocaHost.Checked = true;
+                } else {
+                    rbRemote.Checked = true;
+                }
+                tbCaminho.Text = Conexao.Caminho;
+                tbIpServidor.Text = Conexao.Ip;
+                tbPorta.Text = Conexao.Porta.ToString();
+                tbUserName.Text = Conexao.UserName;
+                tbSenha.Text = Conexao.Password;
+                return;
+            }
             rbLocaHost.Checked = true;
-            tbPorta.Text = "3050";
+            tbPorta.Text = @"3050";
             tbUserName.Text = UserName;
             tbSenha.Text = Password;
         }
@@ -67,8 +87,22 @@
             if (!ValidaCampos()) {
                 return;
             }
-            Conexao conexao = new Conexao(Alias, Servidor, Porta, Ip, Caminho, UserName, Password);
-            ConfFirebird.Conexoes.Add(conexao);
+            if (Conexao != null) {
+                if (FileFirebird.Conexoes.Contains(Conexao)) {
+                    Int32 index = FileFirebird.Conexoes.IndexOf(Conexao);
+                    FileFirebird.Conexoes[index].Alias = Alias;
+                    FileFirebird.Conexoes[index].Porta = Porta;
+                    FileFirebird.Conexoes[index].Servidor = Servidor;
+                    FileFirebird.Conexoes[index].Ip = Ip;
+                    FileFirebird.Conexoes[index].Caminho = Caminho;
+                    FileFirebird.Conexoes[index].UserName = UserName;
+                    FileFirebird.Conexoes[index].Password = Password;
+                }
+            } else {
+                Conexao conexao = new Conexao(Alias, Servidor, Porta, Ip, Caminho, UserName, Password);
+                FileFirebird.Conexoes.Add(conexao);
+            }
+            FileFirebird.EscritaArquivo();
             DialogResult = DialogResult.OK;
         }
 
@@ -86,28 +120,6 @@
                 return false;
             }
             return true;
-        }
-
-        public void EscritaArquivo() {
-            String c = Environment.CurrentDirectory + "\\Banco\\Firebird.conf";
-            String registros = "";
-            String strConexao = "[@ALIAS]\n" +
-                "DataSource=@IP\n" +
-                "port=@PORT\n" +
-                "DataBase=@CAMINHO\n" +
-                "username=@USERNAME\n" +
-                "password=@PASSWORD\n\n\n";
-
-            foreach (Conexao cn in ConfFirebird.Conexoes) {
-                strConexao = strConexao.Replace("@ALIAS", cn.Alias);
-                strConexao = strConexao.Replace("@IP", cn.Ip);
-                strConexao = strConexao.Replace("@PORT", cn.Porta.ToString());
-                strConexao = strConexao.Replace("@CAMINHO", cn.Caminho);
-                strConexao = strConexao.Replace("@USERNAME", cn.UserName);
-                strConexao = strConexao.Replace("@PASSWORD", cn.Password);
-                registros += strConexao;
-            }
-            File.WriteAllText(c, registros);
         }
 
         private void tbPorta_Leave(object sender, EventArgs e) {

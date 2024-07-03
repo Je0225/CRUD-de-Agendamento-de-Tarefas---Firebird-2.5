@@ -1,5 +1,4 @@
 ﻿using FirebirdSql.Data.FirebirdClient;
-using Microsoft.VisualBasic;
 
 namespace GestaoDeTarefas.Repository {
 
@@ -13,5 +12,7 @@ namespace GestaoDeTarefas.Repository {
             }
             return conexao;
         }
+
     }
+
 }

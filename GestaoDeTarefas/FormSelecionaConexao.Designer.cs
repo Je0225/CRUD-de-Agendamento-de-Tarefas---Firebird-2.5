@@ -28,22 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lbxConexoes = new ListBox();
             btnAdd = new Button();
             btnExcluir = new Button();
             btnEditar = new Button();
             btnCancelar = new Button();
             btnConfirmar = new Button();
+            lvConexoes = new ListView();
+            Nome = new ColumnHeader();
             SuspendLayout();
-            // 
-            // lbxConexoes
-            // 
-            lbxConexoes.FormattingEnabled = true;
-            lbxConexoes.ItemHeight = 15;
-            lbxConexoes.Location = new Point(12, 12);
-            lbxConexoes.Name = "lbxConexoes";
-            lbxConexoes.Size = new Size(276, 154);
-            lbxConexoes.TabIndex = 0;
             // 
             // btnAdd
             // 
@@ -95,17 +87,32 @@
             btnConfirmar.UseVisualStyleBackColor = true;
             btnConfirmar.Click += btnConfirmar_Click;
             // 
+            // lvConexoes
+            // 
+            lvConexoes.Columns.AddRange(new ColumnHeader[] { Nome });
+            lvConexoes.Location = new Point(12, 12);
+            lvConexoes.MultiSelect = false;
+            lvConexoes.Name = "lvConexoes";
+            lvConexoes.Size = new Size(266, 147);
+            lvConexoes.TabIndex = 6;
+            lvConexoes.UseCompatibleStateImageBehavior = false;
+            lvConexoes.View = View.List;
+            // 
+            // Nome
+            // 
+            Nome.Width = 200;
+            // 
             // FormSelecionaConexao
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(385, 214);
+            Controls.Add(lvConexoes);
             Controls.Add(btnConfirmar);
             Controls.Add(btnCancelar);
             Controls.Add(btnEditar);
             Controls.Add(btnExcluir);
             Controls.Add(btnAdd);
-            Controls.Add(lbxConexoes);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FormSelecionaConexao";
@@ -115,12 +122,12 @@
         }
 
         #endregion
-
-        private ListBox lbxConexoes;
         private Button btnAdd;
         private Button btnExcluir;
         private Button btnEditar;
         private Button btnCancelar;
         private Button btnConfirmar;
+        private ListView lvConexoes;
+        private ColumnHeader Nome;
     }
 }

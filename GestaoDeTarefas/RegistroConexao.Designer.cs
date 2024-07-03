@@ -51,7 +51,7 @@
             // lblAlias
             // 
             lblAlias.AutoSize = true;
-            lblAlias.Location = new Point(12, 18);
+            lblAlias.Location = new Point(39, 13);
             lblAlias.Name = "lblAlias";
             lblAlias.Size = new Size(32, 15);
             lblAlias.TabIndex = 0;
@@ -60,7 +60,7 @@
             // lblCaminho
             // 
             lblCaminho.AutoSize = true;
-            lblCaminho.Location = new Point(11, 152);
+            lblCaminho.Location = new Point(15, 147);
             lblCaminho.Name = "lblCaminho";
             lblCaminho.Size = new Size(56, 15);
             lblCaminho.TabIndex = 3;
@@ -69,7 +69,7 @@
             // lblUserName
             // 
             lblUserName.AutoSize = true;
-            lblUserName.Location = new Point(11, 182);
+            lblUserName.Location = new Point(6, 177);
             lblUserName.Name = "lblUserName";
             lblUserName.Size = new Size(65, 15);
             lblUserName.TabIndex = 4;
@@ -78,7 +78,7 @@
             // lblSenha
             // 
             lblSenha.AutoSize = true;
-            lblSenha.Location = new Point(11, 214);
+            lblSenha.Location = new Point(32, 209);
             lblSenha.Name = "lblSenha";
             lblSenha.Size = new Size(39, 15);
             lblSenha.TabIndex = 5;
@@ -87,7 +87,7 @@
             // 
             // btnSalvar
             // 
-            btnSalvar.Location = new Point(229, 240);
+            btnSalvar.Location = new Point(220, 235);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(75, 23);
             btnSalvar.TabIndex = 6;
@@ -97,7 +97,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(310, 240);
+            btnCancelar.Location = new Point(301, 235);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 23);
             btnCancelar.TabIndex = 7;
@@ -107,14 +107,14 @@
             // 
             // tbAlias
             // 
-            tbAlias.Location = new Point(87, 18);
+            tbAlias.Location = new Point(78, 13);
             tbAlias.Name = "tbAlias";
             tbAlias.Size = new Size(299, 23);
             tbAlias.TabIndex = 8;
             // 
             // tbUserName
             // 
-            tbUserName.Location = new Point(86, 179);
+            tbUserName.Location = new Point(77, 174);
             tbUserName.Name = "tbUserName";
             tbUserName.Size = new Size(299, 23);
             tbUserName.TabIndex = 9;
@@ -122,7 +122,7 @@
             // 
             // tbSenha
             // 
-            tbSenha.Location = new Point(86, 211);
+            tbSenha.Location = new Point(77, 206);
             tbSenha.Name = "tbSenha";
             tbSenha.PasswordChar = '*';
             tbSenha.Size = new Size(299, 23);
@@ -132,7 +132,7 @@
             // 
             // tbCaminho
             // 
-            tbCaminho.Location = new Point(86, 149);
+            tbCaminho.Location = new Point(77, 144);
             tbCaminho.Name = "tbCaminho";
             tbCaminho.Size = new Size(299, 23);
             tbCaminho.TabIndex = 11;
@@ -140,24 +140,24 @@
             // rbRemote
             // 
             rbRemote.AutoSize = true;
-            rbRemote.Location = new Point(74, 14);
+            rbRemote.Location = new Point(63, 14);
             rbRemote.Name = "rbRemote";
             rbRemote.Size = new Size(104, 19);
             rbRemote.TabIndex = 12;
             rbRemote.TabStop = true;
-            rbRemote.Tag = "";
+            rbRemote.Tag = "Remote/TCP IP";
             rbRemote.Text = "Remote/TCP IP";
             rbRemote.UseVisualStyleBackColor = true;
             // 
             // rbLocaHost
             // 
             rbLocaHost.AutoSize = true;
-            rbLocaHost.Location = new Point(198, 14);
+            rbLocaHost.Location = new Point(187, 14);
             rbLocaHost.Name = "rbLocaHost";
             rbLocaHost.Size = new Size(81, 19);
             rbLocaHost.TabIndex = 13;
             rbLocaHost.TabStop = true;
-            rbLocaHost.Tag = "\"Local Host\"";
+            rbLocaHost.Tag = "\"localhost\"";
             rbLocaHost.Text = "Local Host";
             rbLocaHost.UseVisualStyleBackColor = true;
             rbLocaHost.CheckedChanged += rbLocaHost_CheckedChanged;
@@ -170,16 +170,16 @@
             gbServidor.Controls.Add(lblIP);
             gbServidor.Controls.Add(rbLocaHost);
             gbServidor.Controls.Add(rbRemote);
-            gbServidor.Location = new Point(12, 42);
+            gbServidor.Location = new Point(15, 37);
             gbServidor.Name = "gbServidor";
-            gbServidor.Size = new Size(374, 101);
+            gbServidor.Size = new Size(362, 101);
             gbServidor.TabIndex = 19;
             gbServidor.TabStop = false;
             gbServidor.Text = "Servidor";
             // 
             // tbPorta
             // 
-            tbPorta.Location = new Point(74, 68);
+            tbPorta.Location = new Point(63, 68);
             tbPorta.Name = "tbPorta";
             tbPorta.Size = new Size(88, 23);
             tbPorta.TabIndex = 20;
@@ -189,7 +189,7 @@
             // lblPorta
             // 
             lblPorta.AutoSize = true;
-            lblPorta.Location = new Point(33, 71);
+            lblPorta.Location = new Point(24, 71);
             lblPorta.Name = "lblPorta";
             lblPorta.Size = new Size(35, 15);
             lblPorta.TabIndex = 19;
@@ -197,15 +197,15 @@
             // 
             // tbIpServidor
             // 
-            tbIpServidor.Location = new Point(74, 39);
+            tbIpServidor.Location = new Point(63, 39);
             tbIpServidor.Name = "tbIpServidor";
-            tbIpServidor.Size = new Size(269, 23);
+            tbIpServidor.Size = new Size(263, 23);
             tbIpServidor.TabIndex = 16;
             // 
             // lblIP
             // 
             lblIP.AutoSize = true;
-            lblIP.Location = new Point(51, 42);
+            lblIP.Location = new Point(39, 42);
             lblIP.Name = "lblIP";
             lblIP.Size = new Size(17, 15);
             lblIP.TabIndex = 15;
@@ -215,7 +215,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(407, 281);
+            ClientSize = new Size(399, 269);
             Controls.Add(gbServidor);
             Controls.Add(tbCaminho);
             Controls.Add(tbSenha);
