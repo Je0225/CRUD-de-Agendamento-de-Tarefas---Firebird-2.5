@@ -2,8 +2,7 @@ using FirebirdSql.Data.FirebirdClient;
 using GestaoDeTarefas.Repository;
 using GestaoDeTarefas.Service;
 
-namespace GestaoDeTarefas
-{
+namespace GestaoDeTarefas {
 
     internal static class Program {
 
@@ -18,11 +17,10 @@ namespace GestaoDeTarefas
             ApplicationConfiguration.Initialize();
             FormSelecionaConexao frmSelecionaConexao = new FormSelecionaConexao();
             Application.Run(frmSelecionaConexao);
-            if (frmSelecionaConexao.DialogResult == DialogResult.Cancel) {
+            if (frmSelecionaConexao.DialogResult != DialogResult.OK) {
                 return;
-            } 
-            //FbConnection connection = ConexaoFirebird.getConnetion();
-            FbConnection connection = new FbConnection(frmSelecionaConexao.StrConexao);
+            }
+            FbConnection connection = ConexaoFirebird.getConnetion(frmSelecionaConexao.ConexaoSelecionada);
             connection.Open();
 
             TarefaRepositoryFirebird repositoryTarefas = new TarefaRepositoryFirebird(connection);

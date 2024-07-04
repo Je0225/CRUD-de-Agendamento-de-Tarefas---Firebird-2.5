@@ -215,7 +215,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(399, 269);
+            ClientSize = new Size(399, 276);
             Controls.Add(gbServidor);
             Controls.Add(tbCaminho);
             Controls.Add(tbSenha);

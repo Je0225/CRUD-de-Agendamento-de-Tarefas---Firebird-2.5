@@ -2,7 +2,7 @@
 
     public partial class FormSelecionaConexao: Form {
 
-        private Conexao? conexaoSelecionada => (Conexao)lvConexoes.SelectedItems[0].Tag;
+        public Conexao? ConexaoSelecionada => (Conexao)lvConexoes.SelectedItems[0].Tag;
 
         private ConfFirebird FileFirebird { get; set; }
 
@@ -23,17 +23,17 @@
         }
 
         private void btnExcluir_Click(object sender, EventArgs e) {
-            if (conexaoSelecionada != null) {
-                FileFirebird.ExcluirConexao(conexaoSelecionada);
+            if (ConexaoSelecionada != null) {
+                FileFirebird.ExcluirConexao(ConexaoSelecionada);
                 PopulaListView();
             }
         }
 
         private void btnEditar_Click(object sender, EventArgs e) {
-            if (conexaoSelecionada == null) {
+            if (ConexaoSelecionada == null) {
                 return;
             }
-            RegistroConexao frmRegistroConexao = new RegistroConexao(conexaoSelecionada, FileFirebird);
+            RegistroConexao frmRegistroConexao = new RegistroConexao(ConexaoSelecionada, FileFirebird);
             frmRegistroConexao.ShowDialog();
             if (frmRegistroConexao.DialogResult == DialogResult.OK) {
                 PopulaListView();
@@ -41,10 +41,10 @@
         }
 
         private void btnConfirmar_Click(object sender, EventArgs e) {
-            if (conexaoSelecionada == null) {
+            if (ConexaoSelecionada == null) {
                 return;
             }
-            StrConexao = FileFirebird.MontaStringConexao(conexaoSelecionada);
+            //StrConexao = FileFirebird.MontaStringConexao(conexaoSelecionada);
             DialogResult = DialogResult.OK;
             Close();
         }
