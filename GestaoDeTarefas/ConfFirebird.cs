@@ -23,29 +23,32 @@
             File.WriteAllText(CaminhoBanco, registros);
         }
 
-
         public void AtualizaListaConexoes() {
             Conexoes.Clear();
             String[] arraylinhas = File.ReadAllLines(CaminhoBanco);
-            List<Dictionary<String, String>> Dicionarios = new List<Dictionary<String, String>>();
-            Dictionary<String, String> registro = new Dictionary<String, String>();
+            List<Dictionary<String, String>> databases = new List<Dictionary<String, String>>();
+            List<Dictionary<String, String>> config = new List<Dictionary<String, String>>();
+            Dictionary<String, String> registro = null;
 
-            for (int i = 0; i < arraylinhas.Length; i++) { 
-                String linha = arraylinhas[i].ToLower();
+            foreach (String linha in arraylinhas) {
+                String l = linha.ToLower().Trim();
                 String[] pedacos;
-                if (linha.Contains('=')) { 
-                    pedacos = linha.Split("=");
-                    registro.Add(pedacos[0], pedacos[1]);
-                } else if (linha.Contains("[")) {
-                    if (i > 0) {
-                        Dicionarios.Add(registro);
-                        registro = new Dictionary<String, String>();
-                        linha = linha.Substring(1, linha.Length - 2);
-                        registro.Add("alias", linha);
+                if (l.Contains('=')) {
+                    pedacos = l.Split("=");
+                    registro[pedacos[0]] = pedacos[1];
+                } else if (l.StartsWith("[")) {
+                    registro = new Dictionary<String, String>();
+                    if (l.Contains("[config]")) {
+                        config.Add(registro);
+                    } else {
+                        databases.Add(registro);
                     }
+                    l = l.Substring(1, l.Length - 2);
+                    registro.Add("alias", l); 
                 }
             }
-            foreach (Dictionary<String, String> dictionary in Dicionarios) {
+
+            foreach (Dictionary<String, String> dictionary in databases) {
                 Conexao conexao = new Conexao(
                     dictionary["alias"],
                     dictionary["server"],
@@ -55,21 +58,20 @@
                     dictionary["username"],
                     dictionary["password"]
                 );
+                if (conexao.Alias == config[0]["defaultconnect"]) {
+                    Config = new Config(
+                        conexao,
+                        Convert.ToInt32(config[0]["edit"])
+                    );
+                }
                 Conexoes.Add(conexao);
             }
-            //foreach (Conexao conexao in Conexoes.Where(n => n.Alias == registroConfig["DefaultConnect"])) {
-              //  Config = new Config(conexao, Convert.ToInt32(registroConfig["Edit"]));
-            //}
-
-
-
         }
 
         public void ExcluirConexao(Conexao conexao) {
             Conexoes.Remove(conexao);
             SalvaConfiguracoes();
         }
-
     }
 
 }

@@ -16,6 +16,9 @@ namespace GestaoDeTarefas {
 
             ApplicationConfiguration.Initialize();
             FormSelecionaConexao frmSelecionaConexao = new FormSelecionaConexao();
+            if (frmSelecionaConexao.Config.Edit != 0) {
+
+            }
             Application.Run(frmSelecionaConexao);
             if (frmSelecionaConexao.DialogResult != DialogResult.OK) {
                 return;

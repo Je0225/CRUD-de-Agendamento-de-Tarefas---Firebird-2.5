@@ -4,9 +4,9 @@
 
         public Conexao? ConexaoSelecionada => (Conexao)lvConexoes.SelectedItems[0].Tag;
 
-        private ConfFirebird FileFirebird { get; set; }
+        public Config Config => FileFirebird.Config;
 
-        public String StrConexao { get; set; }
+        private ConfFirebird FileFirebird { get; set; }
 
         public FormSelecionaConexao() {
             InitializeComponent();
@@ -44,7 +44,6 @@
             if (ConexaoSelecionada == null) {
                 return;
             }
-            //StrConexao = FileFirebird.MontaStringConexao(conexaoSelecionada);
             DialogResult = DialogResult.OK;
             Close();
         }
