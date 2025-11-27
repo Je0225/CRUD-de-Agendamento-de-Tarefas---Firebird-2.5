@@ -1,86 +1,97 @@
-﻿using GestaoDeTarefas.Domain;
-using GestaoDeTarefas.Service;
+﻿using GestaoDeTarefas.Services.Dtos;
 
-namespace GestaoDeTarefas
-{
+namespace GestaoDeTarefas {
 
-    public partial class FormRegistroTarefa : Form
-    {
+  public partial class FormRegistroTarefa : FormBase {
 
-        private ListaDeTarefas ListaSelecionada { get; set; }
-
-        private Tarefa? Tarefa { get; set; }
-
-        private TarefasServices services { get; set; }
-
-        public FormRegistroTarefa(TarefasServices services, ListaDeTarefas listaSelecionada, Tarefa? tarefa)
-        {
-            InitializeComponent();
-            this.services = services;
-            Tarefa = tarefa;
-            ListaSelecionada = listaSelecionada;
-            cbSituacao.Items.AddRange(new[] { "Pendente", "Andamento", "Concluido" });
-            if (Tarefa == null)
-            {
-                return;
-            }
-            tbTitulo.Text = Tarefa.Titulo;
-            tbDescricao.Text = Tarefa.Descricao;
-            cbSituacao.Text = Tarefa.Status;
-        }
-
-        private void btnSalvar_Click(object sender, EventArgs e)
-        {
-            if (!ValidaCampos())
-            {
-                return;
-            }
-            String mensagem;
-            if (Tarefa == null)
-            {
-                mensagem = services.CriarTarefa(new CriarTarefaInputDto
-                {
-                    Titulo = tbTitulo.Text,
-                    Descricao = tbDescricao.Text,
-                    Status = (String)cbSituacao.SelectedItem,
-                    lista = ListaSelecionada
-                });
-            }
-            else
-            {
-                Tarefa.Titulo = tbTitulo.Text;
-                Tarefa.Descricao = tbDescricao.Text;
-                Tarefa.Status = cbSituacao.SelectedItem.ToString();
-                mensagem = services.EditarTarefa(Tarefa);
-            }
-            MessageBox.Show(mensagem);
-            DialogResult = DialogResult.OK;
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
-        }
-
-        private Boolean ValidaCampos()
-        {
-            if (tbDescricao.Text.Trim().Equals(""))
-            {
-                MessageBox.Show(@"Informe uma Descrição!");
-                return false;
-            }
-            if (tbTitulo.Text.Trim().Equals(""))
-            {
-                MessageBox.Show(@"Informe um título!");
-                return false;
-            }
-            if (cbSituacao.SelectedItem == null)
-            {
-                MessageBox.Show(@"Informe o Status da Tarefa!");
-                return false;
-            }
-            return true;
-        }
+    private String Titulo {
+      get => tbTitulo.Text.Trim();
+      init => tbTitulo.Text = value.Trim();
     }
+
+    private String Descricao {
+      get => tbDescricao.Text.Trim();
+      init => tbDescricao.Text = value.Trim();
+    }
+
+    private String Status {
+      get => cbSituacao.SelectedItem == null ? "" : (String)cbSituacao.SelectedItem; 
+      init => cbSituacao.SelectedItem = value.Trim();
+    }
+
+    private ListaDeTarefasDto? ListaSelecionada { get; }
+
+    public TarefaInputDto? Tarefa { get; private set; }
+
+    public FormRegistroTarefa(ListaDeTarefasDto listaSelecionada) {
+      InitializeComponent();
+      PopulaComboBox();
+      ListaSelecionada = listaSelecionada;
+    }
+
+    public FormRegistroTarefa(TarefaInputDto? tarefa) {
+      InitializeComponent();
+      PopulaComboBox();
+      Tarefa = tarefa;
+      if (Tarefa == null) {
+        return;
+      }
+      Titulo = Tarefa.Titulo;
+      Descricao = Tarefa.Descricao;
+      Status = Tarefa.Status;
+    }
+
+    private void PopulaComboBox() {
+      cbSituacao.Items.AddRange(new Object[] { "Pendente", "Andamento", "Concluido" });
+    }
+
+    private Boolean ValidaCampos() {
+      if (Descricao.Equals("")) {
+        MessageBox.Show(@"Informe uma Descrição!");
+        return false;
+      }
+      if (Titulo.Equals("")) {
+        MessageBox.Show(@"Informe um título!");
+        return false;
+      }
+      if (Status.Equals("")) {
+        MessageBox.Show(@"Informe o Status da Tarefa!");
+        return false;
+      }
+      return true;
+    }
+
+    private void Salvar() {
+      if (!ValidaCampos()) {
+        return;
+      }
+      if (Tarefa == null) {
+        Tarefa = new TarefaInputDto(
+          Titulo,
+          Descricao,
+          Status,
+          ListaSelecionada!
+        );
+      } else {
+        Tarefa.Titulo = Titulo;
+        Tarefa.Descricao = Descricao;
+        Tarefa.Status = Status;
+      }
+      DialogResult = DialogResult.OK;
+    }
+
+    private void Cancelar() {
+      DialogResult = DialogResult.Cancel;
+    }
+
+    private void btnSalvar_Click(object sender, EventArgs e) {
+      Salvar();
+    }
+
+    private void btnCancelar_Click(object sender, EventArgs e) {
+      Cancelar();
+    }
+
+  }
 
 }

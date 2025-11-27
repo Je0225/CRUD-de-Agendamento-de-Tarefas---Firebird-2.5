@@ -1,0 +1,6 @@
+C:\Users\User\Documents\Sources\CSharp\GestaoDeTarefas\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\GestaoDeTarefas\bin\Release\net7.0-windows\publish\GestaoDeTarefas.exe
+C:\Users\User\Documents\Sources\CSharp\GestaoDeTarefas\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\GestaoDeTarefas\bin\Release\net7.0-windows\publish\GestaoDeTarefas.dll
+C:\Users\User\Documents\Sources\CSharp\GestaoDeTarefas\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\GestaoDeTarefas\bin\Release\net7.0-windows\publish\GestaoDeTarefas.deps.json
+C:\Users\User\Documents\Sources\CSharp\GestaoDeTarefas\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\GestaoDeTarefas\bin\Release\net7.0-windows\publish\GestaoDeTarefas.runtimeconfig.json
+C:\Users\User\Documents\Sources\CSharp\GestaoDeTarefas\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\GestaoDeTarefas\bin\Release\net7.0-windows\publish\GestaoDeTarefas.pdb
+C:\Users\User\Documents\Sources\CSharp\GestaoDeTarefas\CRUD-de-Agendamento-de-Tarefas---Firebird-2.5\GestaoDeTarefas\bin\Release\net7.0-windows\publish\FirebirdSql.Data.FirebirdClient.dll

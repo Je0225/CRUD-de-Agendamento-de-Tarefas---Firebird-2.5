@@ -1,28 +1,28 @@
 ﻿namespace GestaoDeTarefas.Domain {
 
-    public class Tarefa {
+  public class Tarefa {
 
-        public Int64 Id { get; set; }
+    public Int64 Id { get; }
 
-        public String Titulo { get; set; }
+    public String Titulo { get; set; }
 
-        public String Descricao { get; set; }
+    public String Descricao { get; set; }
 
-        public DateTime Data { get; set; }
+    public DateTime Data { get; }
 
-        public String Status { get; set; }
+    public String Status { get; set; }
 
-        public ListaDeTarefas Lista { get; set; }
+    public ListaDeTarefas Lista { get; }
 
-        public Tarefa(Int64 id, string titulo, string descricao, String status, ListaDeTarefas lista) {
-            Id = id;
-            Titulo = titulo;
-            Descricao = descricao;
-            Data = DateTime.Now;
-            Status = status;
-            Lista = lista;
-        }
-
+    public Tarefa(Int64 id, String titulo, String descricao, String status, ListaDeTarefas lista) {
+      Id = id;
+      Titulo = titulo;
+      Descricao = descricao;
+      Data = DateTime.Now;
+      Status = status;
+      Lista = lista;
     }
+
+  }
 
 }

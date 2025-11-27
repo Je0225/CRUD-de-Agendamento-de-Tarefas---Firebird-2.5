@@ -1,41 +1,39 @@
 using FirebirdSql.Data.FirebirdClient;
+using GestaoDeTarefas.Ferramentas;
 using GestaoDeTarefas.Repository;
-using GestaoDeTarefas.Service;
+using GestaoDeTarefas.Services;
 
 namespace GestaoDeTarefas {
 
-    internal static class Program {
+  internal static class Program {
+    [STAThread]
+    static void Main() {
+      ApplicationConfiguration.Initialize();
 
-        /// <summary>
-        ///     The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main() {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+      FirebirdParser fbParser = new FirebirdParser();
+      FirebirdConfServices fbServices = new FirebirdConfServices(fbParser);
+      FbConnection conexao;
 
-            ApplicationConfiguration.Initialize();
-            FormSelecionaConexao frmSelecionaConexao = new FormSelecionaConexao();
-            if (frmSelecionaConexao.Config.Edit != 0) {
-
-            }
-            Application.Run(frmSelecionaConexao);
-            if (frmSelecionaConexao.DialogResult != DialogResult.OK) {
-                return;
-            }
-            FbConnection connection = ConexaoFirebird.getConnetion(frmSelecionaConexao.ConexaoSelecionada);
-            connection.Open();
-
-            TarefaRepositoryFirebird repositoryTarefas = new TarefaRepositoryFirebird(connection);
-            ListaRepositoryFirebird repositoryListas = new ListaRepositoryFirebird(connection);
-            TarefasServices tarefasServices = new TarefasServices(repositoryTarefas);
-            ListasDeTarefasServices listasServices = new ListasDeTarefasServices(repositoryListas);
-
-            Application.Run(new FormPrincipal(tarefasServices, listasServices));
-
-            connection.Close();
+      if (fbServices.GetEdit() > 0) {
+        conexao = new FbConnection(fbServices.GetConexaoPadrao().ToString());
+      } else {
+        FormSelecionaConexaoPadrao formSelecionaConexaoPadrao = new FormSelecionaConexaoPadrao(fbServices);
+        formSelecionaConexaoPadrao.ShowDialog();
+        if (formSelecionaConexaoPadrao.DialogResult != DialogResult.OK) {
+          return;
         }
+        conexao = new FbConnection(formSelecionaConexaoPadrao.ConexaoSelecionada!.ToString());
+      }
+      conexao.Open();
 
+      TarefaRepositorioFirebird tarefaRepositorioFb = new TarefaRepositorioFirebird(conexao);
+      ListaRepositorioFirebird listaRepositorioFb = new ListaRepositorioFirebird(conexao);
+      TarefaServices tarefaServices = new TarefaServices(tarefaRepositorioFb);
+      ListaDeTarefasServices listaServices = new ListaDeTarefasServices(listaRepositorioFb);
+
+      Application.Run(new FormPrincipal(tarefaServices, listaServices));
+      conexao.Close();
     }
+  }
 
 }
